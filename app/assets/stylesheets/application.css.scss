@@ -19,8 +19,21 @@
 
 /* picture from morguefile */
 
-body {
-  background-image: url(http://cdn.morguefile.com/imageData/public/files/o/o0o0xmods0o0o/preview/fldr_2008_11_28/file0001599131472.jpg);
-  background-position: 0% 0%;
+.indexBackground {
+  background-image: url(https://farm5.staticflickr.com/4063/4259953247_e509cb1a82_b.jpg);
   background-size: cover;
+  padding-top: 70px;
+}
+.jumbotron {
+  color: clear;
+}
+.page-header{
+  h1{
+    color:#FF7326;
+    text-shadow: 0px 2px 3px #FFE65C;
+  }
+  small{
+    color: #FFE65C;
+    text-shadow: 0px 2px 3px #FF7326;
+  }
 }
