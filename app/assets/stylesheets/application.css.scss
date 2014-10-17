@@ -16,3 +16,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* picture from morguefile */
+
+body {
+  background-image: url(http://cdn.morguefile.com/imageData/public/files/o/o0o0xmods0o0o/preview/fldr_2008_11_28/file0001599131472.jpg);
+  background-position: 0% 0%;
+  background-size: cover;
+}
