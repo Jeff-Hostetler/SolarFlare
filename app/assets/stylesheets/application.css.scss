@@ -18,16 +18,15 @@
 @import "bootstrap";
 
 /* picture from morguefile */
-
+body{
+  padding-top: 50px;
+}
+/*INDEX*/
+/* picture from morguefile */
 .indexBackground {
   background-image: url(https://farm5.staticflickr.com/4063/4259953247_e509cb1a82_b.jpg);
   background-size: cover;
-  padding-top: 70px;
-}
-.jumbotron {
-  color: clear;
-}
-.page-header{
+
   h1{
     color:#FF7326;
     text-shadow: 0px 2px 3px #FFE65C;
@@ -35,5 +34,14 @@
   small{
     color: #FFE65C;
     text-shadow: 0px 2px 3px #FF7326;
+  }
+}
+/*ABOUT*/
+.aboutBackground{
+  background-image: url(https://farm9.staticflickr.com/8528/8470916287_9118cdbc12_b.jpg);
+  background-size: cover;
+
+  small{
+    color:#52527A;
   }
 }
