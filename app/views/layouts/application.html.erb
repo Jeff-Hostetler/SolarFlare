@@ -63,10 +63,21 @@
 
 <%= yield %>
   <footer>
-          <p>
+          <div class="col-md-2 col-md-offset-10">
             Created by Jeff Hostetler
-            <a href="https://www.linkedin.com/profile/view?id=119041210&trk=nav_responsive_tab_profile_pic">LinkedIn</a>
-          </p>
+            <%= link_to "https://linkedin.com/in/hostetjm/" do %>
+              <%= image_tag("LinkedIn.png", width: "20em") %>
+            <% end %>
+            <%= link_to "https://github.com/Jeff-Hostetler" do %>
+              <%= image_tag("GitHub.png", width: "20em") %>
+            <% end %>
+            <%= link_to "https://twitter.com/DreamsDontNeedU" do %>
+              <%= image_tag("Twitter.png", width: "20em") %>
+            <% end %>
+            <%= link_to "http://www.galvanize.it/school" do %>
+              <%= image_tag("galvanize.jpeg", width: "70em") %>
+            <% end %>
+          </div>
   </footer>
 
 
