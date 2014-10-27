@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users
   root "pages#index"
 get "about" => "pages#about", name: :about
 get "products" => "pages#products", name: :products
