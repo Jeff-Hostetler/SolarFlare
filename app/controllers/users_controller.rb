@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -14,11 +15,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       respond_to do |format|
         if @user.save
-          format.html { redirect_to users_url, notice: 'User was successfully created.' }
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
         end
       end
   end
 
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :project_name,

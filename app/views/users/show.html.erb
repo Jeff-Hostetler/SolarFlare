@@ -1,6 +1,16 @@
 <div class="container">
-  <p>
-    
+  <div class="page-header">
+    <h1>Thank you.
+      <br>
+        <small>
+          You have successfully created a user profile.
+        </small>
+        <% if @user.join_mailing_list == true %>
+          <small>
+            Thank you for joining our mailing list.
+          </small>
+        <% end %>
+    <h1>
+  </div>
 
   <%= link_to 'Back', users_path %>
-</div>
