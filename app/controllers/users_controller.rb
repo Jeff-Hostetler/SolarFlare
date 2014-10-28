@@ -15,7 +15,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       respond_to do |format|
         if @user.save
-          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.html { redirect_to @user, notice: 'User was successfully created.'}
+        else
+          format.html { render :new }
         end
       end
   end
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
 
   def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :project_name,
-      :join_mailing_list)
+      :join_mailing_list, :password, :password_confirmation)
   end
 
 

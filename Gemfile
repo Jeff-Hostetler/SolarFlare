@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-
+gem 'bcrypt', '~> 3.1.5'
 gem 'rails_12factor', group: :production
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
