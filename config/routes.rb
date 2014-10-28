@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :users
+
   root "pages#index"
 get "about" => "pages#about", name: :about
 get "products" => "pages#products", name: :products
+
+resources :users
+get "login" => "users#login", name: :login
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

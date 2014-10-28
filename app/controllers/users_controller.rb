@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+
   def index
+    
   end
 
   def show
@@ -19,6 +21,15 @@ class UsersController < ApplicationController
         else
           format.html { render :new }
         end
+      end
+  end
+
+  def login
+    @user = User.find_by_email(params[:email])
+      if @user.password == params[:password]
+        give_token
+      else
+        redirect_to users_url
       end
   end
 
