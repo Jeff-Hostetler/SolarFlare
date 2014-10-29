@@ -2,13 +2,22 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def login
-    @user = User.find_by_email(params[:email])
-      if @user.password == params[:password]
-        give_token
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+      if user && user.authenticate(params[:session][:password])
+        log_in user
+        redirect_to user
       else
-        redirect_to users_url
+        render :new
+        #error message
       end
+  end
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+  
+  def destroy
   end
 
 end
