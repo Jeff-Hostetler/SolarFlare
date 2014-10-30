@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    User.find_by(params[:id]).destroy
-    redirect_to login_path
+    log_out
+    redirect_to root_url
   end
 
 end
