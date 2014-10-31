@@ -1,1 +1,120 @@
-<h1>Edit stuff goes here</h1>
+<div class="container">
+<h1>Edit your info</h1>
+
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="first_name" class="form-control, col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <%= f.text_field :first_name, class:"form-control, col-sm-5", type:"text"%>
+        </div>
+      </div>
+    <br></br>
+
+      <div class="form-group">
+        <label for="last_name" class="form-control, col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+          <%= f.text_field :last_name, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <div class="form-group">
+        <label for="email" class="form-control, col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <%= f.email_field :email, type:"email", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <div class="form-group">
+        <label for="last_name" class="form-control, col-sm-2 control-label">
+        What would you like to name your panels? (ex. Home panels)</label>
+        <div class="col-sm-10">
+          <%= f.text_field :project_name, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <h4>*We use your address in our software to monitor the weather in your area
+      as well as generating an estimate of solar activity based on the time of day.</h4>
+
+        <!-- FOR ADDRESS figure out to find out how to extract street # -->
+
+      <div class="form-group">
+        <label for="address" class="form-control, col-sm-2 control-label">
+        Street Number </label>
+        <div class="col-sm-10">
+          <%= f.text_field :address_street_number, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <div class="form-group">
+        <label for="address" class="form-control, col-sm-2 control-label">
+        Street </label>
+        <div class="col-sm-10">
+          <%= f.text_field :address_street, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <div class="form-group">
+        <label for="address_city" class="form-control, col-sm-2 control-label">
+        City</label>
+        <div class="col-sm-10">
+          <%= f.text_field :address_city, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <div class="form-group">
+        <label for="address_state" class="form-control, col-sm-2 control-label">
+        State</label>
+        <div class="col-sm-10">
+          <%= f.text_field :address_state, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <div class="form-group">
+        <label for="address_zip" class="form-control, col-sm-2 control-label">
+        Zip Code</label>
+        <div class="col-sm-10">
+          <%= f.text_field :address_zip, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
+      <br></br>
+
+      <div class="form-group">
+        <label for="due" class="form-control, col-sm-2 control-label">Join our mailing list?</label>
+        <div class="col-sm-10">
+          <%= f.check_box :join_mailing_list, type:"checkbox", class:"form-control, col-sm-1" %>
+        </div>
+      </div>
+
+      <br></br>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit class:"btn btn-primary" %>
+        </div>
+      </div>
+
+    </form>
+  <% end %>
+  </div>
+
+</div>
