@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       respond_to do |format|
         if @user.save
-          format.html { redirect_to @user, notice: 'Thank you. Your account has been created.'}
+          log_in(@user)
+          format.html { redirect_to current_user, notice: 'Thank you. Your account has been created.'}
         else
           format.html { render :new }
         end
