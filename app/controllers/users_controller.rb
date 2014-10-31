@@ -31,6 +31,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+    def update
+      @user = current_user
+      @user.update(user_params)
+      redirect_to current_user, notice: 'Your info has been saved'
+    end
+
 
   private
 
