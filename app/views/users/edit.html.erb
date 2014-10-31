@@ -51,6 +51,7 @@
 
       <h4>*We use your address in our software to monitor the weather in your area
       as well as generating an estimate of solar activity based on the time of day.</h4>
+      <br>
 
         <!-- FOR ADDRESS figure out to find out how to extract street # -->
 
@@ -99,14 +100,39 @@
       </div>
       <br></br>
 
+      <h4>*Select below how you want SolarFlare to alert you when your systems are not
+      behaving efficiently</h4>
+      <br>
+
       <div class="form-group">
-        <label for="due" class="form-control, col-sm-2 control-label">Join our mailing list?</label>
+        <label for="text_alert" class="form-control, col-sm-2 control-label">
+        By text message?</label>
         <div class="col-sm-10">
-          <%= f.check_box :join_mailing_list, type:"checkbox", class:"form-control, col-sm-1" %>
+          <%= f.check_box :text_alert, type:"checkbox", class:"form-control, col-sm-1" %>
         </div>
       </div>
-
+      <br>
+      
+      <div class="form-group">
+        <label for="phone_number" class="form-control, col-sm-2 control-label">
+        Phone Number</label>
+        <div class="col-sm-10">
+          <%= f.text_field :phone_number, type:"text", class:"form-control, col-sm-5" %>
+        </div>
+      </div>
       <br></br>
+
+
+      <div class="form-group">
+        <label for="email_alert" class="form-control, col-sm-2 control-label">
+        By Email?</label>
+        <div class="col-sm-10">
+          <%= f.check_box :email_alert, type:"checkbox", class:"form-control, col-sm-1" %>
+        </div>
+      </div>
+      <br></br>
+
+
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <%= f.submit class:"btn btn-primary" %>
