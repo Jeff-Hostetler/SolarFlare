@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
         log_in user
         redirect_to user
       else
+        flash[:notice] = 'Incorrect password and/or email. Please try again.'
         render :new
-        #error message
       end
   end
 
