@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
-  before_filter :confirm_logged_in, :only => [:show]
+  before_filter :confirm_logged_in, :only => [:show, :edit]
 
   def index
 
@@ -19,11 +19,16 @@ class UsersController < ApplicationController
       respond_to do |format|
         if @user.save
           log_in(@user)
-          format.html { redirect_to current_user, notice: 'Thank you. Your account has been created.'}
+          format.html { redirect_to current_user, notice: 'Thank you. Your account has been created.
+            Please edit your profile to fill out other information at your convenience.'}
         else
           format.html { render :new }
         end
       end
+  end
+
+  def edit
+    @user = current_user
   end
 
 
