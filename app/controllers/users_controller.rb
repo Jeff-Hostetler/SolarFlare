@@ -16,15 +16,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-      respond_to do |format|
         if @user.save
           log_in(@user)
-          format.html { redirect_to current_user, notice: 'Thank you. Your account has been created.
-            Please edit your profile to fill out other information at your convenience.'}
+          redirect_to current_user, notice: 'Thank you. Your account has been created.
+                                            Please edit your profile to fill out other
+                                            information at your convenience.'
         else
-          format.html { render :new }
+          render :new
         end
-      end
   end
 
   def edit
