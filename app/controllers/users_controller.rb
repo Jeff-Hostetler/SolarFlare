@@ -22,6 +22,7 @@ class UsersController < ApplicationController
                                             Please edit your profile to fill out other
                                             information at your convenience.'
         else
+          #for some reason this renders me at new with index in the url
           render :new
         end
   end
