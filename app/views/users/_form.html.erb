@@ -21,4 +21,6 @@
   <%= link_to "Use during the day", "/users/:id/2" %></li>
   <li class="<%= 'active' if current_page?("/users/:id/3")%>">
   <%= link_to "Alerts sent", "/users/:id/3" %></li>
+  <li class="<%= 'active' if current_page?("/users/:id/4")%>">
+  <%= link_to "Weather in your area", "/users/:id/4" %></li>
 </ul>

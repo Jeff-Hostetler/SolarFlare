@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
   before_filter :confirm_logged_in, :only => [:show, :edit]
 
-  def index
+  helper WeatherHelper
 
+  def index
   end
 
   def show
@@ -15,6 +16,10 @@ class UsersController < ApplicationController
   end
 
   def show_bar
+    @user = current_user
+  end
+
+  def show_weather
     @user = current_user
   end
 
