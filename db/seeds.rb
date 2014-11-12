@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# <% forecast = ForecastIO.forecast(37.8267, -122.423) %>
+# <%= forecast %>

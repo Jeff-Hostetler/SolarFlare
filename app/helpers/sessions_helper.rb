@@ -18,5 +18,8 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
-  
+
+  # <% forecast = ForecastIO.forecast(37.8267, -122.423) %>
+  # <%= forecast %>
+
 end
