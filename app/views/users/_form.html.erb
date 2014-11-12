@@ -1,72 +1,63 @@
-<!-- <div class="container">
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<<div class="container">
+  <div class="page-header">
+    <h1>Hello, <%= @user.first_name %> <%= @user.last_name %>
+      <br>
+        <small>
+          <%= link_to("Edit your info", edit_user_path) %>
+        </small>
+    <h1>
+  </div>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="list-group">
+    <h4 class="list-group-item-heading">We use this info along side data collected from
+    your sensor to provide accurate analysis. Please update if needed.</h4>
+    <h5 class="list-group-item-heading">Address</h5>
+    <p class="list-group-item-text"><%= current_user.address_street_number %>
+       <%= current_user.address_street %> <br> <%= current_user.address_city %>,
+       <%= current_user.address_state %> <%= current_user.address_zip %>
+       </p>
+    </a>
+  </div>
+
+  <!-- migration to make text alert and email alert false by default -->
+
+    <div class="list-group">
+      <h4 class="list-group-item-heading">We use this info to send you alerts. Please
+      update as needed </h4>
+      <% if current_user.email_alert == true %>
+        <h5 class="list-group-item-heading">Email</h5>
+          <p class="list-group-item-text">
+            <%= current_user.email %>
+          </p>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <form class="form-horizontal" role="form">
-    <div class="form-group">
-      <label for="first_name" class="form-control, col-sm-2 control-label">First Name</label>
-      <div class="col-sm-10">
-        <%= f.text_field :first_name, class:"form-control, col-sm-5", type:"text"%>
-      </div>
-    </div>
-  <br></br>
-
-    <div class="form-group">
-      <label for="due" class="form-control, col-sm-2 control-label">Last Name</label>
-      <div class="col-sm-10">
-        <%= f.text_field :last_name, type:"text", class:"form-control, col-sm-5" %>
-      </div>
-    </div>
-    <br></br>
-
-    <div class="form-group">
-      <label for="due" class="form-control, col-sm-2 control-label">Email</label>
-      <div class="col-sm-10">
-        <%= f.email_field :email, type:"email", class:"form-control, col-sm-5" %>
-      </div>
-    </div>
-    <br></br>
-
-    <div class="form-group">
-      <label for="password" class="form-control, col-sm-2 control-label">Password</label>
-      <div class="col-sm-10">
-        <%= f.password_field :password, type:"password", class:"form-control, col-sm-5" %>
-      </div>
-    </div>
-    <br></br>
-
-    <div class="form-group">
-      <label for="password-confirmation" class="form-control, col-sm-2 control-label">Password Confirmation</label>
-      <div class="col-sm-10">
-        <%= f.password_field :password_confirmation, type:"password", class:"form-control, col-sm-5" %>
-      </div>
-    </div>
-    <br></br>
-
-    <div class="form-group">
-      <label for="due" class="form-control, col-sm-2 control-label">Join our mailing list?</label>
-      <div class="col-sm-10">
-        <%= f.check_box :join_mailing_list, type:"checkbox", class:"form-control, col-sm-1" %>
-      </div>
+      <% if current_user.text_alert == true %>
+        <h5 class="list-group-item-heading">Phone Number</h5>
+        <% if current_user.phone_number != nil %>
+          <p class="list-group-item-text">
+            <%= current_user.phone_number %>
+          </p>
+        <% else %>
+          <p class="list-group-item-text">
+            We haven't recieved a phone number for you. Please edit your profile
+            information <%= link_to("here", edit_user_path) %>
+          </p>
+        <% end %>
+      <% end %>
+        <p class="list-group-item-text">
+        </p>
+      </a>
     </div>
 
-    <br></br>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit class:"btn btn-primary" %>
-      </div>
+
+    <div class= "page-header">
+      <h3>Your array activity</h3>
     </div>
-  </form>
-<% end %>
-</div> -->
+
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li class="<%= 'active' if current_page?(current_user)%>">
+      <%= link_to "Effieciency over time", current_user %></li>
+      <li class="<%= 'active' if current_page?("/users/:id/2")%>">
+      <%= link_to "Use during the day", "/users/:id/2" %></li>
+      <li class="<%= 'active' if current_page?("/users/:id/3")%>">
+      <%= link_to "Alerts sent", "/users/:id/3" %></li>
+    </ul>

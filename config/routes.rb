@@ -11,7 +11,8 @@ get "about" => "pages#about", name: :about
 get "products" => "pages#products", name: :products
 
 resources :users
-
+get '/users/:id/2' => 'users#show_pie'
+get '/users/:id/3' => 'users#show_bar'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

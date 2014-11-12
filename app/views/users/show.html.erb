@@ -1,63 +1,11 @@
-<div class="container">
-  <div class="page-header">
-    <h1>Hello, <%= @user.first_name %> <%= @user.last_name %>
-      <br>
-        <small>
-          <%= link_to("Edit your info", edit_user_path) %>
-        </small>
-    <h1>
-  </div>
+<%= render 'form' %>
 
-  <div class="list-group">
-    <h4 class="list-group-item-heading">We use this info along side data collected from
-    your sensor to provide accurate analysis. Please update if needed.</h4>
-    <h5 class="list-group-item-heading">Address</h5>
-    <p class="list-group-item-text"><%= current_user.address_street_number %>
-       <%= current_user.address_street %> <br> <%= current_user.address_city %>,
-       <%= current_user.address_state %> <%= current_user.address_zip %>
-       </p>
-    </a>
-  </div>
-
-  <!-- migration to make text alert and email alert false by default -->
-
-    <div class="list-group">
-      <h4 class="list-group-item-heading">We use this info to send you alerts. Please
-      update as needed </h4>
-      <% if current_user.email_alert == true %>
-        <h5 class="list-group-item-heading">Email</h5>
-          <p class="list-group-item-text">
-            <%= current_user.email %>
-          </p>
-      <% end %>
-      <% if current_user.text_alert == true %>
-        <h5 class="list-group-item-heading">Phone Number</h5>
-        <% if current_user.phone_number != nil %>
-          <p class="list-group-item-text">
-            <%= current_user.phone_number %>
-          </p>
-        <% else %>
-          <p class="list-group-item-text">
-            We haven't recieved a phone number for you. Please edit your profile
-            information <%= link_to("here", edit_user_path) %>
-          </p>
-        <% end %>
-      <% end %>
-        <p class="list-group-item-text">
-        </p>
-      </a>
-    </div>
-
-  <div class="graph">
-    <div class= "page-header">
-      <h3>Your array activity</h3>
-    </div>
     <!-- Area for data/ visualization -->
-    <% data = [['2014-05-11 15:39:02 -0700', 52.9], ['2014-06-11 15:39:02 -0700', 40],
-    ['2014-07-11 15:39:02 -0700', 45], ['2014-08-11 15:39:02 -0700', 1.6],
-     ['2014-09-11 15:39:02 -0700', 6], ['2014-10-11 15:39:02 -0700', 1.6]] %>
+    <% data_line_graph = [['2014-05-11 15:39:02 -0700', 13], ['2014-06-11 15:39:02 -0700', 20],
+    ['2014-07-11 15:39:02 -0700', 18], ['2014-08-11 15:39:02 -0700', 56],
+     ['2014-09-11 15:39:02 -0700', 70], ['2014-10-11 15:39:02 -0700', 65]] %>
 
-   <%= line_chart data, id: "Example graph", colors: ["red", "#FE7E19"]%>
+   <%= line_chart data_line_graph, id: "Example graph", colors: ["red", "#FE7E19"]%>
  </div>
 
 </div>
