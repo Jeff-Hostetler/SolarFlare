@@ -49,3 +49,6 @@ end
 
 #gem for charts
 gem "chartkick"
+
+#forecast API
+gem 'forecast_io'
