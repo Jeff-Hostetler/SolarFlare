@@ -53,3 +53,6 @@ gem "chartkick"
 
 #forecast API
 gem 'forecast_io'
+
+#geocoder
+gem "geocoder"

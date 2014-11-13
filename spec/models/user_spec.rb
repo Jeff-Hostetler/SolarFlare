@@ -82,7 +82,14 @@ describe User do
   it "has full_name method" do
     user = User.new(first_name: "First", last_name: "Last")
     expect(user.full_name).to eq("First Last")
+  end
 
+  it "has full_street_address method" do
+    user = User.new(address: "123 Fake St.",
+                    address_city: "City",
+                    address_state: "ST",
+                    address_zip: "10000" )
+    expect(user.full_street_address).to eq ("123 Fake St., City, ST 10000")
   end
 
 end

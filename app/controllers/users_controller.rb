@@ -46,8 +46,14 @@ class UsersController < ApplicationController
 
     def update
       @user = current_user
-      @user.update(user_params)
-      redirect_to current_user, notice: 'Your info has been saved'
+      if @user.update(params.require(:user).permit(:first_name,
+                      :last_name, :project_name, :join_mailing_list,
+                      :address, :address_city, :address_state, :address_zip,
+                      :phone_number, :text_alert, :email_alert, :longitude, :latitude))
+        redirect_to current_user, notice: 'Your info has been saved'
+      else
+        render :edit
+      end
     end
 
 
@@ -61,7 +67,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :email, :project_name,
       :join_mailing_list, :password, :password_confirmation,
       :address, :address_city, :address_state, :address_zip, :phone_number,
-      :text_alert, :email_alert)
+      :text_alert, :email_alert, :longitude, :latitude)
   end
 
 

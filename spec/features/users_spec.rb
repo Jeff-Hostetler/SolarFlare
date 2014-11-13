@@ -20,7 +20,7 @@ feature "Users" do
     fill_in "Password confirmation", with: "testers"
     check "Join mailing list"
     click_on "Sign Up"
-    expect(page).to have_content("Hello, Test Userguy")
+    expect(page).to have_content("Hello, Test")
 
   end
 
