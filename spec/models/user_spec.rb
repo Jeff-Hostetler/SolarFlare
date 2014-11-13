@@ -79,4 +79,10 @@ describe User do
     expect(user.errors[:password].present?).to eq(true)
   end
 
+  it "has full_name method" do
+    user = User.new(first_name: "First", last_name: "Last")
+    expect(user.full_name).to eq("First Last")
+
+  end
+
 end

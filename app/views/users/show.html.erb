@@ -1,7 +1,6 @@
 <div class="container">
+
   <%= render 'form' %>
-
-
 
       <!-- Area for data/ visualization -->
   <% data_line_graph = [['2014-05-11 15:39:02 -0700', 13], ['2014-06-11 15:39:02 -0700', 20],
@@ -9,6 +8,7 @@
                       ['2014-09-11 15:39:02 -0700', 70], ['2014-10-11 15:39:02 -0700', 65]] %>
 
   <%= line_chart data_line_graph, colors: ["red", "#FE7E19"]%>
+  <h3><%= link_to("Edit your info", edit_user_path) %></h3>
 
   <%= render 'form2' %>
 </div>
