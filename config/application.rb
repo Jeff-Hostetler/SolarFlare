@@ -5,7 +5,7 @@ require 'rails/all'
 
 require 'forecast_io'
 require 'dotenv'
-Dotenv.load
+
 
 
 # Require the gems listed in Gemfile, including any gems
