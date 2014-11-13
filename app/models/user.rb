@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_secure_password
   # validates_presence_of :password, :on => :create
   validates :password, length: {minimum: 6, maximum: 20}
-  validates_presence_of :password_confirmation, :on => :create
-  validates_presence_of :email, presence: true, uniqueness: true
-  validates_presence_of :first_name, presence: true
-  validates_presence_of :last_name, presence: true
+  validates :password_confirmation, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
 end
