@@ -1,10 +1,9 @@
 <div class="container">
   <%= render 'form' %>
 
-  <% data_pie_chart = [["Day time from array", 30], ["Day time from grid", 5],
-  ["Night time from array batteries", 45], ["Night time from grid", 10]] %>
+  <% data_column_chart = [["Light Level", light_level]] %>
 
-  <%= pie_chart data_pie_chart %>
+  <%= column_chart data_column_chart, min:0, max:1000 %>
 
-  
+
 </div>

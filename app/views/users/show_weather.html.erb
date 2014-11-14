@@ -1,12 +1,19 @@
 <div class="container">
   <%= render 'form' %>
-  <h3>Weather Summary: <%= weather_summary %></h3>
-  <h3>Cloud Coverage: <%= cloud_cover_now %> %</h3>
-  <h3>Sunrise: <%= sunrise_time %></h3>
-  <h3>Sunset: <%= sunset_time %></h3>
-  <h3>Percipitation Chance: <%= precipitation_probability %>%</h3>
-  <h3>Max Temperature: <%= temperature_max %>F</h3>
-  <h3>Minimum Temperature: <%= temperature_min %>F</h3>
+  <% if current_user.address_zip != nil %>
+    <h1>Here is your current weather summary</h1>
+    <hr>
+    <h3>Weather Summary: <%= weather_summary %></h3>
+    <h3>Cloud Coverage: <%= cloud_cover_now %> %</h3>
+    <h3>Sunrise: <%= sunrise_time %></h3>
+    <h3>Sunset: <%= sunset_time %></h3>
+    <h3>Percipitation Chance: <%= precipitation_probability %>%</h3>
+    <h3>Max Temperature: <%= temperature_max %>F</h3>
+    <h3>Minimum Temperature: <%= temperature_min %>F</h3>
+    <% else %>
+      <h1>You have not entered an address. Weather information is currently
+      unavailable.</h1>
+    <% end %>
   <!-- cloud cover
   percipitation
   temperature ----- snow! -->

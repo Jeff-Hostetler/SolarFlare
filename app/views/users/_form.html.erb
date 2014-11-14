@@ -16,11 +16,11 @@
 
 <ul class="nav nav-tabs nav-justified" role="tablist">
   <li class="<%= 'active' if current_page?(current_user)%>">
-  <%= link_to "Effieciency over time", current_user %></li>
+  <%= link_to "Your energy use", current_user %></li>
   <li class="<%= 'active' if current_page?("/users/show/2")%>">
-  <%= link_to "Use during the day", "/users/show/2" %></li>
+  <%= link_to "Your current light level", "/users/show/2" %></li>
   <li class="<%= 'active' if current_page?("/users/show/3")%>">
-  <%= link_to "Your current light level", "/users/show/3" %></li>
+  <%= link_to "Upcoming cloud cover forecast", "/users/show/3" %></li>
   <li class="<%= 'active' if current_page?("/users/show/4")%>">
   <%= link_to "Weather in your area", "/users/show/4" %></li>
 </ul>

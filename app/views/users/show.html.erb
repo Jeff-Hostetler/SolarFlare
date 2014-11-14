@@ -1,18 +1,12 @@
-<div class="container">
-  LONGITUDE: <%= current_user.longitude %>
-  
-  Lat: <%= current_user.latitude %>
 
+<div class="container">
+  <h3><%= link_to("Edit your info", edit_user_path) %></h3>
   <%= render 'form' %>
 
+  <% data_pie_chart = [["Day time from array", 30], ["Day time from grid", 5],
+  ["Night time from array batteries", 45], ["Night time from grid", 10]] %>
 
-      <!-- Area for data/ visualization -->
-  <% data_line_graph = [['2014-05-11 15:39:02 -0700', 13], ['2014-06-11 15:39:02 -0700', 20],
-                      ['2014-07-11 15:39:02 -0700', 18], ['2014-08-11 15:39:02 -0700', 56],
-                      ['2014-09-11 15:39:02 -0700', 70], ['2014-10-11 15:39:02 -0700', 65]] %>
+  <%= pie_chart data_pie_chart %>
 
-  <%= line_chart data_line_graph, colors: ["red", "#FE7E19"]%>
-  <h3><%= link_to("Edit your info", edit_user_path) %></h3>
 
-  <%= render 'form2' %>
 </div>
