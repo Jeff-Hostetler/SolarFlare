@@ -1,9 +1,10 @@
 <div class="container">
   <%= render 'form' %>
-  <% data_column_chart = [["This week", 4], ["Last week", 2], ["10/15-10/31", 1],
-                      ["10/01-10/14", 6]] %>
 
-  <%= column_chart data_column_chart %>
 
-  
+  <% data_column_chart = [["Light Level", light_level]] %>
+
+  <%= column_chart data_column_chart, min:0, max:1000 %>
+
+
 </div>

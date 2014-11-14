@@ -1,8 +1,10 @@
 <div class="container">
   LONGITUDE: <%= current_user.longitude %>
+  <h3>Light level on panels is: <%= light_level %></h3>
   Lat: <%= current_user.latitude %>
 
   <%= render 'form' %>
+
 
       <!-- Area for data/ visualization -->
   <% data_line_graph = [['2014-05-11 15:39:02 -0700', 13], ['2014-06-11 15:39:02 -0700', 20],

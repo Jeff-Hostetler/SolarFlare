@@ -56,3 +56,6 @@ gem 'forecast_io'
 
 #geocoder
 gem "geocoder"
+
+#arduino gem
+gem 'serialport', '~> 1.3.1'
