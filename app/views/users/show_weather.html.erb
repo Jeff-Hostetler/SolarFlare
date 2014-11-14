@@ -1,24 +1,61 @@
 <div class="container">
   <%= render 'form' %>
   <% if current_user.address_zip != nil %>
-    <h1>Here is your current weather summary</h1>
-    <hr>
-    <h3>Weather Summary: <%= weather_summary %></h3>
-    <h3>Cloud Coverage: <%= cloud_cover_now %> %</h3>
-    <h3>Sunrise: <%= sunrise_time %></h3>
-    <h3>Sunset: <%= sunset_time %></h3>
-    <h3>Percipitation Chance: <%= precipitation_probability %>%</h3>
-    <h3>Max Temperature: <%= temperature_max %>F</h3>
-    <h3>Minimum Temperature: <%= temperature_min %>F</h3>
-    <% else %>
-      <h1>You have not entered an address. Weather information is currently
-      unavailable.</h1>
-    <% end %>
-  <!-- cloud cover
-  percipitation
-  temperature ----- snow! -->
+    <div class="page-header">
+      <h1>
+          <small>
+            <%= weather_summary %>
+          </small>
+      </h1>
+    </div>
 
-  ADD powered by forecast.io
+    <div class = "col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Cloud Coverage (0 - 1)</h3>
+        </div>
+        <div class="panel-body">
+          <%= cloud_cover_now %>
+        </div>
+      </div>
+    </div>
+
+    <div class = "col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Percipitation Chance</h3>
+        </div>
+        <div class="panel-body">
+          <%= precipitation_probability %>%
+        </div>
+      </div>
+    </div>
+
+    <div class = "col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sunrise/ Sunset Time</h3>
+        </div>
+        <div class="panel-body">
+          <%= sunrise_time %> / <%= sunset_time %>
+        </div>
+      </div>
+    </div>
+
+   <div class = "col-sm-6">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+         <h3 class="panel-title">Max/ Min Temp</h3>
+       </div>
+       <div class="panel-body">
+         <%= temperature_max%>/ <%= temperature_min %>
+       </div>
+     </div>
+   </div>
+
+  <% end %>
+
+
 
 
 </div>

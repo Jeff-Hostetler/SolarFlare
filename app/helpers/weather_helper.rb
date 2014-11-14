@@ -14,7 +14,7 @@ module WeatherHelper
   end
 
   def precipitation_probability
-    weather_now_hash["precipProbability"]
+    weather_now_hash["precipProbability"] * 100
   end
 
   def weather_summary

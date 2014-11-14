@@ -1,7 +1,9 @@
 
 <div class="container">
-  <h3><%= link_to("Edit your info", edit_user_path) %></h3>
+
   <%= render 'form' %>
+
+  <h3><%= link_to("Edit your info", edit_user_path) %></h3>
 
   <% data_pie_chart = [["Day time from array", 30], ["Day time from grid", 5],
   ["Night time from array batteries", 45], ["Night time from grid", 10]] %>
