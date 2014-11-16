@@ -10,7 +10,8 @@ module WeatherHelper
   end
 
   def cloud_cover_now
-    weather_now_hash["cloudCover"]
+    cc = weather_now_hash["cloudCover"]
+    display_percentage = cc*100
   end
 
   def precipitation_probability
@@ -30,11 +31,13 @@ module WeatherHelper
   end
 
   def sunrise_time
-    weather_now_hash["sunriseTime"]
+    require 'date'
+    Time.at(weather_now_hash["sunriseTime"]).to_time.to_s(:time)
   end
 
   def sunset_time
-    weather_now_hash["sunsetTime"]
+    require 'date'
+    Time.at(weather_now_hash["sunsetTime"]).to_time.to_s(:time)
   end
 
 
