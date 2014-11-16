@@ -14,7 +14,7 @@
                         [Time.now+7.day, weather_in_seven_days["cloudCover"]]
                         ] %>
 
-  <%= line_chart data_line_graph, colors: ["red", "#FE7E19"]%>
+  <%= line_chart data_line_graph, colors: ["red", "#FE7E19"], min: 0, max: 1.1%>
 
   <%= render 'form2' %>
 </div>
