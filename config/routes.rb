@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
 
-
+  root "pages#index"
+  get "about" => "pages#about", name: :about
+  get "products" => "pages#products", name: :products
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-    root "pages#index"
-  get "about" => "pages#about", name: :about
-  get "products" => "pages#products", name: :products
-
   resources :users do
     get "weekly" => "weather#weekly", name: :weekly
     get "daily" => "weather#daily", name: :daily
+    get "cloud_coverage" => "weather#cloud_coverage", name: :cloud_coverage
+
+    get "current_reading" => "sensor#current_reading", name: :current_reading
   end
 
   # these routes are janky fix them fool.

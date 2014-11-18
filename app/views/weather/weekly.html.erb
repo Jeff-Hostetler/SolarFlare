@@ -1,1 +1,24 @@
-Weekly weather report
+<div class="container">
+  <div class="page-header">
+    <h1>Weekly Forecast
+      <br>
+        <small>
+
+        </small>
+    <h1>
+  </div>
+  <h3>Temperature</h3>
+  <% data_line_graph = [[Time.now.to_date, weather_now_hash["temperatureMax"]],
+                        [(Time.now+1.day).to_date, weather_tomorrow_hash["temperatureMax",]],
+                        [(Time.now+2.day).to_date, weather_in_two_days["temperatureMax"]],
+                        [(Time.now+3.day).to_date, weather_in_three_days["temperatureMax"]],
+                        [(Time.now+4.day).to_date, weather_in_four_days["temperatureMax"]],
+                        [(Time.now+5.day).to_date, weather_in_five_days["temperatureMax"]],
+                        [(Time.now+6.day).to_date, weather_in_six_days["temperatureMax"]],
+                        [(Time.now+7.day).to_date, weather_in_seven_days["temperatureMax"]]
+                        ] %>
+
+  <%= column_chart data_line_graph, colors: ["red", "#FE7E19"],
+    min: 0, max: 100, stacked: true%>
+
+</div>

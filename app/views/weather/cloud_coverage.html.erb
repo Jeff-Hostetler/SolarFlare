@@ -2,8 +2,8 @@
 
   <%= render 'form' %>
 
+  <%= link_to "Full forecast", user_weekly_path(current_user) %>
 
-      <!-- Area for data/ visualization -->
   <% data_line_graph = [[Time.now, weather_now_hash["cloudCover"]],
                         [Time.now+1.day, weather_tomorrow_hash["cloudCover"]],
                         [Time.now+2.day, weather_in_two_days["cloudCover"]],
@@ -16,5 +16,5 @@
 
   <%= line_chart data_line_graph, colors: ["red", "#FE7E19"], min: 0, max: 1.1%>
 
-  <%= render 'form2' %>
+
 </div>

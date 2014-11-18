@@ -9,4 +9,7 @@ class WeatherController<ApplicationController
   def daily
   end
 
+  def cloud_coverage
+  end
+
 end
