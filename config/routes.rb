@@ -2,18 +2,23 @@ Rails.application.routes.draw do
 
 
 
-get    'login'   => 'sessions#new'
-post   'login'   => 'sessions#create'
-delete 'logout'  => 'sessions#destroy'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
 
-  root "pages#index"
-get "about" => "pages#about", name: :about
-get "products" => "pages#products", name: :products
+    root "pages#index"
+  get "about" => "pages#about", name: :about
+  get "products" => "pages#products", name: :products
 
-resources :users
-get '/users/show/2' => 'users#show_pie'
-get '/users/show/3' => 'users#show_bar'
-get '/users/show/4' => 'users#show_weather'
+  resources :users do
+    get "weekly" => "weather#weekly", name: :weekly
+    get "daily" => "weather#daily", name: :daily
+  end
+
+  # these routes are janky fix them fool.
+  get '/users/show/2' => 'users#show_pie'
+  get '/users/show/3' => 'users#show_bar'
+  get '/users/show/4' => 'users#show_weather'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
