@@ -8,7 +8,7 @@ module SensorHelper
     9600
   end
   def data_bits
-     8
+    8
   end
 
   def stop_bits
@@ -20,7 +20,9 @@ module SensorHelper
   end
 
   def sp
-    SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
+    if port_str != nil
+      SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
+    end
   end
 
   def light_level

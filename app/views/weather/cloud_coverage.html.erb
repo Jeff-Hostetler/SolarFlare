@@ -5,16 +5,16 @@
   <%= link_to "Full forecast", user_weekly_path(current_user) %>
 
   <% data_line_graph = [[Time.now, weather_now_hash["cloudCover"]],
-                        [Time.now+1.day, weather_tomorrow_hash["cloudCover"]],
-                        [Time.now+2.day, weather_in_two_days["cloudCover"]],
-                        [Time.now+3.day, weather_in_three_days["cloudCover"]],
-                        [Time.now+4.day, weather_in_four_days["cloudCover"]],
-                        [Time.now+5.day, weather_in_five_days["cloudCover"]],
-                        [Time.now+6.day, weather_in_six_days["cloudCover"]],
-                        [Time.now+7.day, weather_in_seven_days["cloudCover"]]
-                        ] %>
+  [Time.now+1.day, weather_tomorrow_hash["cloudCover"]],
+  [Time.now+2.day, weather_in_two_days["cloudCover"]],
+  [Time.now+3.day, weather_in_three_days["cloudCover"]],
+  [Time.now+4.day, weather_in_four_days["cloudCover"]],
+  [Time.now+5.day, weather_in_five_days["cloudCover"]],
+  [Time.now+6.day, weather_in_six_days["cloudCover"]],
+  [Time.now+7.day, weather_in_seven_days["cloudCover"]]
+  ] %>
 
   <%= line_chart data_line_graph, colors: ["red", "#FE7E19"], min: 0, max: 1.1%>
 
-
+  <%= render "form2" %>
 </div>

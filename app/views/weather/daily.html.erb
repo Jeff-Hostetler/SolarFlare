@@ -3,11 +3,10 @@
   <% if current_user.address_zip != nil %>
     <div class="page-header">
       <h1>
-          <small>
-            <%= weather_summary %>
-            <br>
-            <%= link_to "Full forecast", user_weekly_path(current_user) %>
-          </small>
+        <small>
+          <br>
+          <%= link_to "Full forecast", user_weekly_path(current_user) %>
+        </small>
       </h1>
     </div>
 
