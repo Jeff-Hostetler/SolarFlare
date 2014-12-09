@@ -26,6 +26,9 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    unless current_user == nil
+      redirect_to root_path
+    end
   end
 
   def create

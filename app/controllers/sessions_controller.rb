@@ -1,5 +1,8 @@
 class SessionsController < PublicController
   def new
+    unless @current_user == nil
+      redirect_to root_path
+    end
   end
 
   def create
