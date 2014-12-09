@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   def confirm_current_user
     unless @user.id == current_user.id
-      AccessDenied
+      raise AccessDenied
     end
   end
 

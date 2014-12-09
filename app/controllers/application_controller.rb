@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :confirm_logged_in
 
+
   include SessionsHelper
 
   def confirm_logged_in
