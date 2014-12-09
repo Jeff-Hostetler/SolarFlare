@@ -19,7 +19,7 @@ class SessionsController < PublicController
 
   def destroy
     log_out
-    redirect_to root_url, notice: "You have logged out"
+    redirect_to root_url
   end
 
 end
