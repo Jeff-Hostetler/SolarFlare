@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   geocoded_by :full_street_address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
 
+  has_many :sensors
+
   def full_name
     "#{first_name} #{last_name}"
   end

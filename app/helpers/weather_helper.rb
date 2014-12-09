@@ -48,7 +48,7 @@ module WeatherHelper
     result_string = result_string[1..-1]
     result_hash = eval(result_string)
   end
-  
+
 
 
 

@@ -3,7 +3,7 @@
   <%= render 'weather/form' %>
 
   <h3><%= link_to("Edit your info", edit_user_path) %></h3>
-
+  <% if current_user.address_zip != nil %>
   <% data_sensor_weekly_graph = [[Time.now.to_date, sensor_percentage_average_x_days_ago(0)],
   [(Time.now-1.day).to_date, sensor_percentage_average_x_days_ago(1)],
   [(Time.now-2.day).to_date, sensor_percentage_average_x_days_ago(2)],
@@ -24,10 +24,12 @@
   ] %>
 
   <%= line_chart [{name: "Light level", data: data_sensor_weekly_graph},
-                  {name: "Cloud cover", data: data_past_cloud_cover}],
-                   min: 0, max: 1.1%>
+    {name: "Cloud cover", data: data_past_cloud_cover}],
+    min: 0, max: 1.1%>
 
-
+  <% else %>
+    <h3 class="danger">You have not entered your address correctly and weather and sensor data cannot be loaded</h3>
+  <% end %>
 
   <%= render 'weather/form2' %>
 
