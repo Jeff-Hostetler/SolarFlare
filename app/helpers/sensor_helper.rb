@@ -1,31 +1,11 @@
 module SensorHelper
-  # require 'serialport'
 
-  def port_str
-    '/dev/tty.usbserial-DA013QVU'
-  end
-  def baud_rate
-    9600
-  end
-  def data_bits
-     8
-  end
-
-  def stop_bits
-    1
-  end
-
-  def parity
-    SerialPort::NONE
-  end
-
-  def sp
-    SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
-  end
-
-  def light_level
-    message = sp.gets
-    message.chomp!
+  def sensor_average_x_days_ago(x)
+    sum = 0
+    Sensor.where(created_at: Time.now-(x+1).day..Time.now-x.day).each do |sensor|
+      sum += sensor.data_point
+    end
+    average = sum / Sensor.where(created_at: Time.now-(x+1).day..Time.now-x.day).count
   end
 
 end

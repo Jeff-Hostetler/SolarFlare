@@ -1,7 +1,7 @@
 <div class="container">
 
   <%= render "weather/form" %>
-  <% data_column_chart = [["Light Level", light_level]] %>
+  <% data_column_chart = [["Light Level", Sensor.last.data_point]] %>
 
   <%= column_chart data_column_chart, min:0, max:1100 %>
 

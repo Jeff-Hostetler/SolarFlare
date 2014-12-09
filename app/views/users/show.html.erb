@@ -3,11 +3,21 @@
   <%= render 'weather/form' %>
 
   <h3><%= link_to("Edit your info", edit_user_path) %></h3>
+  <h3><%= sensor_average_x_days_ago(0) %></h3>
 
-  <% data_pie_chart = [["Day time from array", 30], ["Day time from grid", 5],
-  ["Night time from array batteries", 45], ["Night time from grid", 10]] %>
+  <% data_sensor_weekly_graph = [[Time.now, sensor_average_x_days_ago(0)],
+  [Time.now-1.day, sensor_average_x_days_ago(1)],
+  [Time.now-2.day, sensor_average_x_days_ago(2)],
+  [Time.now-3.day, sensor_average_x_days_ago(3)],
+  [Time.now-4.day, sensor_average_x_days_ago(4)],
+  [Time.now-5.day, sensor_average_x_days_ago(5)],
+  [Time.now-6.day, sensor_average_x_days_ago(6)],
+  [Time.now-7.day, sensor_average_x_days_ago(7)]
+  ] %>
 
-  <%= pie_chart data_pie_chart %>
+  <%= line_chart data_sensor_weekly_graph, colors: ["red", "#FE7E19"], min: 400, max: 1000%>
+
+
 
   <%= render 'weather/form2' %>
 

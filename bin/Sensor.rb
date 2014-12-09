@@ -43,7 +43,7 @@ conn = PG.connect( dbname: 'SolarFlare_development' )
 data = Sensor.new
 loop do
   level = data.light_level
-  sleep 1
+  sleep 60
   sql = 'insert into sensors (data_point, created_at) values ($1, $2);'
   conn.exec_params(sql, [level, Time.now.to_s])
 end
