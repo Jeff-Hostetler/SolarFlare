@@ -11,13 +11,13 @@
   <h3>Your array activity</h3>
 </div>
 
-<ul class="nav nav-tabs nav-justified" role="tablist">
+<ul class="nav nav-tabs nav-justified" >
   <li class="<%= 'active' if current_page?(current_user)%>">
-  <%= link_to "Your energy use", current_user %></li>
-  <li class="<%= 'active' if current_page?(root_path)%>">
+  <%= link_to "Your weekly light levels", current_user %></li>
+  <li class="<%= 'active' if current_page?(user_current_reading_path(@user))%>">
   <%= link_to "Your current light level", user_current_reading_path(@user) %></li>
-  <li class="<%= 'active' if current_page?(root_path)%>">
+  <li class="<%= 'active' if current_page?(user_cloud_coverage_path(@user))%>">
   <%= link_to "Upcoming cloud cover forecast", user_cloud_coverage_path(@user) %></li>
-  <li class="<%= 'active' if current_page?(root_path)%>">
+  <li class="<%= 'active' if current_page?(user_daily_path(@user))%>">
   <%= link_to "Weather in your area", user_daily_path(@user) %></li>
 </ul>

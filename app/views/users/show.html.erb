@@ -3,7 +3,7 @@
   <%= render 'weather/form' %>
 
   <h3><%= link_to("Edit your info", edit_user_path) %></h3>
-  <h3><%= sensor_average_x_days_ago(0) %></h3>
+
 
   <% data_sensor_weekly_graph = [[Time.now, sensor_average_x_days_ago(0)],
   [Time.now-1.day, sensor_average_x_days_ago(1)],

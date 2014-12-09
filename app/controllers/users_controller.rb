@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
-  before_filter :confirm_logged_in, :only => [:show, :edit]
+  skip_before_action :confirm_logged_in, only:[:new, :create]
 
   helper WeatherHelper
   helper SensorHelper

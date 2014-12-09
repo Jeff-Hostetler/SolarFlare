@@ -1,3 +1,4 @@
+require 'date'
 module WeatherHelper
 
   def weather_now_hash
@@ -31,12 +32,10 @@ module WeatherHelper
   end
 
   def sunrise_time
-    require 'date'
     Time.at(weather_now_hash["sunriseTime"]).to_time.to_s(:time)
   end
 
   def sunset_time
-    require 'date'
     Time.at(weather_now_hash["sunsetTime"]).to_time.to_s(:time)
   end
 

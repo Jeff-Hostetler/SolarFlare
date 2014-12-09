@@ -1,6 +1,8 @@
 <div class="container">
 
   <%= render "weather/form" %>
+
+  <h5>The last reading was taken at <%= Sensor.last.created_at %></h3>
   <% data_column_chart = [["Light Level", Sensor.last.data_point]] %>
 
   <%= column_chart data_column_chart, min:0, max:1100 %>
