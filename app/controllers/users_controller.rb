@@ -32,9 +32,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
         if @user.save
           log_in(@user)
-          redirect_to current_user, notice: 'Thank you. Your account has been created.
+          redirect_to edit_user_path(@user), notice: 'Thank you. Your account has been created.
                                             Please edit your profile to fill out other
-                                            information at your convenience.'
+                                            information that is necessary to use SolarFlare effectively.'
         else
           #for some reason this renders me at new with index in the url
           render :new

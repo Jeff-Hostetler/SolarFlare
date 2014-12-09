@@ -10,8 +10,8 @@ feature "Users" do
     click_on "Sign Up"
     expect(page).to have_content("New User Sign Up")
     click_on "SolarFlare"
-    click_on "Optimize Your System"
-    click_on "Create User Profile"
+    click_on "Optimize your system"
+    click_on "Sign Up"
     expect(page).to have_content("New User Sign Up")
     fill_in "First name", with: "Test"
     fill_in "Last name", with: "Userguy"
@@ -20,15 +20,14 @@ feature "Users" do
     fill_in "Password confirmation", with: "testers"
     check "Join mailing list"
     click_on "Sign Up"
-    expect(page).to have_content("Hello, Test")
+    expect(page).to have_content("Thank you. Your account has been created")
 
   end
 
   scenario "User tries to sign up with invalid info" do
 
     visit root_path
-    click_on "Optimize Your System"
-    click_on "Create User Profile"
+    click_on "Optimize your system"
     click_on "Sign Up"
     expect(page).to have_content("6 errors prohibited this user from being saved:")
 

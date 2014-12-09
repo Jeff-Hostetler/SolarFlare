@@ -77,23 +77,24 @@
 
 
 <%= yield %>
-  <footer>
-          <div class="col-md-2 col-md-offset-10">
-            Created by Jeff Hostetler
-            <%= link_to "https://linkedin.com/in/hostetjm/" do %>
-              <%= image_tag("LinkedIn.png", width: "20em") %>
-            <% end %>
-            <%= link_to "https://github.com/Jeff-Hostetler" do %>
-              <%= image_tag("GitHub.png", width: "20em") %>
-            <% end %>
-            <%= link_to "https://twitter.com/DreamsDontNeedU" do %>
-              <%= image_tag("Twitter.png", width: "20em") %>
-            <% end %>
-            <%= link_to "http://www.galvanize.it/school" do %>
-              <%= image_tag("galvanize.jpeg", width: "70em") %>
-            <% end %>
-          </div>
-  </footer>
-  <%= debug(params) if Rails.env.development? %>
+  <div class = "container">
+    <footer>
+      <div class="col-md-2 col-md-offset-10">
+        Created by Jeff Hostetler
+        <%= link_to "https://linkedin.com/in/hostetjm/" do %>
+        <%= image_tag("LinkedIn.png", width: "20em") %>
+        <% end %>
+        <%= link_to "https://github.com/Jeff-Hostetler" do %>
+        <%= image_tag("GitHub.png", width: "20em") %>
+        <% end %>
+        <%= link_to "https://twitter.com/JeffHosBoss" do %>
+        <%= image_tag("Twitter.png", width: "20em") %>
+        <% end %>
+        <%= link_to "http://www.galvanize.it/school" do %>
+        <%= image_tag("galvanize.jpeg", width: "70em") %>
+        <% end %>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
