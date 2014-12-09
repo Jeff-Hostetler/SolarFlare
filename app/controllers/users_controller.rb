@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :confirm_current_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :confirm_logged_in, only:[:new, :create]
 
   helper WeatherHelper
@@ -12,17 +13,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def show_pie
-    @user = current_user
-  end
-
-  def show_bar
-    @user = current_user
-  end
-
-  def show_weather
-    @user = current_user
-  end
 
   def new
     @user = User.new
@@ -48,17 +38,17 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-    def update
-      @user = current_user
-      if @user.update(params.require(:user).permit(:first_name,
-                      :last_name, :project_name, :join_mailing_list,
-                      :address, :address_city, :address_state, :address_zip,
-                      :phone_number, :text_alert, :email_alert, :longitude, :latitude))
-        redirect_to current_user, notice: 'Your info has been saved'
-      else
-        render :edit
-      end
+  def update
+    @user = current_user
+    if @user.update(params.require(:user).permit(:first_name,
+                    :last_name, :project_name, :join_mailing_list,
+                    :address, :address_city, :address_state, :address_zip,
+                    :phone_number, :text_alert, :email_alert, :longitude, :latitude))
+      redirect_to current_user, notice: 'Your info has been saved'
+    else
+      render :edit
     end
+  end
 
 
   private
@@ -74,5 +64,11 @@ class UsersController < ApplicationController
       :text_alert, :email_alert, :longitude, :latitude)
   end
 
+
+  def confirm_current_user
+    unless @user.id == current_user.id
+      AccessDenied
+    end
+  end
 
 end

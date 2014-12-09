@@ -1,6 +1,9 @@
 class WeatherController<ApplicationController
   before_action do
-    @user = current_user
+    @user = User.find(params[:user_id])
+    unless @current_user == nil
+      redirect_to root_path
+    end
   end
 
   def weekly

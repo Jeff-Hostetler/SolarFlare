@@ -1,5 +1,6 @@
 class SessionsController < PublicController
   def new
+    @user = User.find_by(params[:email])
     unless @current_user == nil
       redirect_to root_path
     end
@@ -11,7 +12,7 @@ class SessionsController < PublicController
         log_in user
         redirect_to user
       else
-        flash[:notice] = 'Incorrect password and/or email. Please try again.'
+        @login_error = "Incorrect username/password combo"
         render :new
       end
   end
