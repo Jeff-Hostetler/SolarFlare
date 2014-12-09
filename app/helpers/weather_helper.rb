@@ -39,7 +39,24 @@ module WeatherHelper
     Time.at(weather_now_hash["sunsetTime"]).to_time.to_s(:time)
   end
 
-
+  def weather_x_days_ago_hash(x)
+    forecast = ForecastIO.forecast(current_user.latitude, current_user.longitude,
+    time: (Time.now - x.day).to_i)
+    daily_data = forecast.to_hash["daily"]
+    data_hash = daily_data["data"]
+    result_string = data_hash.to_s.chop!
+    result_string = result_string[1..-1]
+    result_hash = eval(result_string)
+  end
+  def weather_yesterday_hash
+    forecast = ForecastIO.forecast(current_user.latitude, current_user.longitude,
+    time: (Time.now - 1.day).to_i)
+    daily_data = forecast.to_hash["daily"]
+    data_hash = daily_data["data"]
+    result_string = data_hash.to_s.chop!
+    result_string = result_string[1..-1]
+    result_hash = eval(result_string)
+  end
 
   def weather_tomorrow_hash
     forecast = ForecastIO.forecast(current_user.latitude, current_user.longitude,
