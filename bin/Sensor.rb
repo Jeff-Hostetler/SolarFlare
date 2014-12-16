@@ -1,4 +1,4 @@
-#! /usr/bin/env ruby
+
 require 'serialport'
 require 'pg'
 require 'logger'

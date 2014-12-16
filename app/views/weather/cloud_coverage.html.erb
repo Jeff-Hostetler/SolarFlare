@@ -1,6 +1,7 @@
 <div class="container">
 
   <%= render 'form' %>
+  <% if @user.address_zip != "" %>
 
   <%= link_to "Full forecast", user_weekly_path(current_user) %>
 
@@ -15,4 +16,7 @@
   ] %>
   <%=line_chart data_line_graph, colors: ["red"], min: 0, max: 1.1%>
   <%= render "form2" %>
+  <% else %>
+  <h3>You have not entered a valid address so this information is not available.</h3>
+  <% end %>
 </div>

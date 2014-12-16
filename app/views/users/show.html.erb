@@ -3,7 +3,7 @@
   <%= render 'weather/form' %>
 
   <h3><%= link_to("Edit your info", edit_user_path) %></h3>
-  <% if current_user.address_zip != nil %>
+  <% if @user.address_zip != "" %>
   <% data_sensor_weekly_graph = [[Time.now.to_date, sensor_percentage_average_x_days_ago(0)],
   [(Time.now-1.day).to_date, sensor_percentage_average_x_days_ago(1)],
   [(Time.now-2.day).to_date, sensor_percentage_average_x_days_ago(2)],

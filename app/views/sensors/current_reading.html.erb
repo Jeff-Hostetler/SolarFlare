@@ -1,6 +1,7 @@
 <div class="container">
 
   <%= render "weather/form" %>
+  <%= link_to "Start Sensor", user_start_sensor_path(@user) %>
 
   <h5>The last reading was taken at <%= Sensor.last.created_at %></h3>
   <% data_column_chart = [["Light Level", Sensor.last.data_point]] %>

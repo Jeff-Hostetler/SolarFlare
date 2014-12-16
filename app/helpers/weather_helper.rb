@@ -12,7 +12,7 @@ module WeatherHelper
 
   def cloud_cover_now
     cc = weather_now_hash["cloudCover"]
-    display_percentage = cc*100
+    display_percentage = (cc*100).to_i
   end
 
   def precipitation_probability

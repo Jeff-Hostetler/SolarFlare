@@ -9,6 +9,19 @@ class SensorsController<ApplicationController
     @sensor = @user.sensors.all
   end
 
+  def start_sensor
+    conn = PG.connect( dbname: 'SolarFlare_development' )
+
+    data = Sensor.new
+    loop do
+      user = current_user
+      level = data.light_level
+      sleep 5
+      sql = 'insert into sensors (data_point, created_at, user_id) values ($1, $2, $3);'
+      conn.exec_params(sql, [level, Time.now.to_s, user.id])
+    end
+  end
+
 
   private
 

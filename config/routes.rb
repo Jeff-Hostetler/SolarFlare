@@ -14,12 +14,9 @@ Rails.application.routes.draw do
     get "cloud_coverage" => "weather#cloud_coverage"
 
     get "current_reading" => "sensors#current_reading"
+    get "start_sensor" => "sensors#start_sensor"
   end
 
-  # these routes are janky fix them fool.
-  get '/users/show/2' => 'users#show_pie'
-  get '/users/show/3' => 'users#show_bar'
-  get '/users/show/4' => 'users#show_weather'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
