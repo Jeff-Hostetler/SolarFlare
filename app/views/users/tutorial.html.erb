@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1>Hello, <%= current_user.full_name %>
+    <br>
+    <small>
+      Welcome to SolarFlare! Before you use this site, there are a couple of things that we need from you
+      Number one is simple, we just need your home address so that we are able to pull up the weather
+      in your area. We use cloud coverage to compare agains the readings from your sensor. Feel
+      free to <%= link_to "edit your info", edit_user_path(current_user) %> at any time to give us
+      that information.
+    </small>
+    <br>
+    <br>
+    <small>
+      The second bit is more complicated and the tutorial below will get you started on setting up your
+      sensor so that SolarFlare can use that data to help you keep your solar panels efficient.
+    </small>
+  <h1>
+</div>
