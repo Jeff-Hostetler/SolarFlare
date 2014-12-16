@@ -1,9 +1,9 @@
 <div class="container">
 
   <%= render 'weather/form' %>
+  <%= link_to("Edit your info", edit_user_path, class:"btn btn-primary btn-sm") %>
 
-  <h3><%= link_to("Edit your info", edit_user_path) %></h3>
-  <% if current_user.address_zip != nil %>
+  <% if current_user.address_zip !=  (nil || "")%>
   <% data_sensor_weekly_graph = [[Time.now.to_date, sensor_percentage_average_x_days_ago(0)],
   [(Time.now-1.day).to_date, sensor_percentage_average_x_days_ago(1)],
   [(Time.now-2.day).to_date, sensor_percentage_average_x_days_ago(2)],
@@ -28,7 +28,13 @@
     min: 0, max: 1.1%>
 
   <% else %>
-    <h3 class="danger">You have not entered your address correctly and weather and sensor data cannot be loaded</h3>
+  <br>
+  <div class="jumbotron">
+    <h3>You have not entered your address into our system. In order for sensor and
+      weather information to display, you will need to add the address where your solar panels
+      are located. </h3>
+    <p>Please <%= link_to("edit your info", edit_user_path) %> </p>
+  </div>
   <% end %>
 
   <%= render 'weather/form2' %>

@@ -1,6 +1,6 @@
 <div class="container">
   <%= render 'form' %>
-  <% if current_user.address_zip != nil %>
+  <% if current_user.address_zip != (nil || "") %>
     <div class="page-header">
       <h1>
         <small>
@@ -54,9 +54,15 @@
      </div>
    </div>
 
+   <% else %>
+   <div class="jumbotron">
+     <h3>You have not entered your address into our system. In order for sensor and
+       weather information to display, you will need to add the address where your solar panels
+       are located. </h3>
+       <p>Please <%= link_to("edit your info", edit_user_path(@user)) %> </p>
+     </div>
+
   <% end %>
-
-
-
+  <%= render "form2" %>
 
 </div>

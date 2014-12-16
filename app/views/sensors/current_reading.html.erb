@@ -1,11 +1,26 @@
 <div class="container">
-
   <%= render "weather/form" %>
 
-  <h5>The last reading was taken at <%= Sensor.last.created_at %></h3>
-  <% data_column_chart = [["Light Level", Sensor.last.data_point]] %>
+  <% if @user.address_zip != (nil || "") && @sensor.last !=nil  %>
+  <h5>The last reading was taken at <%= @sensor.last.created_at %></h3>
+    <% data_column_chart = [["Light Level", @sensor.last.data_point]] %>
 
-  <%= column_chart data_column_chart, min:0, max:1100 %>
+    <%= column_chart data_column_chart, min:0, max:1100 %>
+
+  <% elsif @sensor.last == nil %>
+  <div class="jumbotron">
+    <h3>You have not entered your sensor port number into our system. In order for sensor information to display,
+       you will need to add the sensor port number to collect light level readings. </h3>
+      <p>Please <%= link_to("edit your info", edit_user_path(@user)) %> </p>
+    </div>
+  <% else %>
+    <div class="jumbotron">
+      <h3>You have not entered your address into our system. In order for sensor and
+        weather information to display, you will need to add the address where your solar panels
+        are located. </h3>
+        <p>Please <%= link_to("edit your info", edit_user_path(@user)) %> </p>
+    </div>
+  <% end %>
 
   <%= render "weather/form2" %>
 
