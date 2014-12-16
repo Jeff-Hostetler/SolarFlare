@@ -1,142 +1,138 @@
-<div class="container">
-  <h1>Edit your info</h1>
+<h1>Edit your info</h1>
 
-    <%= form_for(@user) do |f| %>
-      <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-          <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-  <div class="form-horizontal">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <%= f.label :first_name, class:"col-sm-2" %>
-        <div class="col-sm-5">
-          <%= f.text_field :first_name, class:"form-control"%>
-        </div>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
       </div>
-    </div>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <%= f.label :last_name, class:"col-sm-2" %>
-          <div class="col-sm-5">
-            <%= f.text_field :last_name, class:"form-control"%>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <%= f.label :email, class:"col-sm-2" %>
-          <div class="col-sm-5">
-            <%= f.text_field :email, class:"form-control"%>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <%= f.label :project_name, class:"col-sm-2" %>
-          <div class="col-sm-5">
-            <%= f.text_field :project_name, class:"form-control"%>
-          </div>
-        </div>
-      </div>
-
-
-      <h4>*We use your address in our software to monitor the weather in your area
-      as well as generating an estimate of solar activity based on the time of day.</h4>
-      <br>
-      <div class="col-sm-12">
-        <div class="form-group">
-          <%= f.label :addresss, class:"col-sm-2" %>
-          <div class="col-sm-5">
-            <%= f.text_field :address, class:"form-control" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="address_city" class="col-sm-2">
-          City</label>
-          <div class="col-sm-5">
-            <%= f.text_field :address_city, class:"form-control" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="address_state" class="col-sm-2">
-          State</label>
-          <div class="col-sm-5">
-            <%= f.text_field :address_state, class:"form-control" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="address_zip" class="col-sm-2">
-          Zip Code</label>
-          <div class="col-sm-5">
-            <%= f.text_field :address_zip, class:"form-control" %>
-          </div>
-        </div>
-      </div>
-
-      <h4>*Select below how you want SolarFlare to alert you when your systems are not
-      behaving efficiently</h4>
-      <br>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="text_alert" class="col-sm-2">
-          By text message?</label>
-          <div class="col-sm-10">
-            <%= f.check_box :text_alert, class:"col-sm-2" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="phone_number" class="col-sm-2">
-          Phone Number</label>
-          <div class="col-sm-5">
-            <%= f.text_field :phone_number, class:"form-control" %>
-          </div>
-        </div>
-      </div>
-
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="email_alert" class="col-sm-2">
-        By Email?</label>
-        <div class="col-sm-10">
-          <%= f.check_box :email_alert, class:"col-sm-2" %>
-        </div>
-      </div>
-    </div>
-
-
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <%= f.submit class:"btn btn-primary" %>
-        </div>
-      </div>
-  </div>
-
   <% end %>
 
+<div class="form-horizontal">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <%= f.label :first_name, class:"col-sm-2" %>
+      <div class="col-sm-5">
+        <%= f.text_field :first_name, class:"form-control"%>
+      </div>
+    </div>
+  </div>
 
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :last_name, class:"col-sm-2" %>
+        <div class="col-sm-5">
+          <%= f.text_field :last_name, class:"form-control"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :email, class:"col-sm-2" %>
+        <div class="col-sm-5">
+          <%= f.text_field :email, class:"form-control"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :project_name, class:"col-sm-2" %>
+        <div class="col-sm-5">
+          <%= f.text_field :project_name, class:"form-control"%>
+        </div>
+      </div>
+    </div>
+
+
+    <h4>*We use your address in our software to monitor the weather in your area
+    as well as generating an estimate of solar activity based on the time of day.</h4>
+    <br>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :addresss, class:"col-sm-2" %>
+        <div class="col-sm-5">
+          <%= f.text_field :address, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="address_city" class="col-sm-2">
+        City</label>
+        <div class="col-sm-5">
+          <%= f.text_field :address_city, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="address_state" class="col-sm-2">
+        State</label>
+        <div class="col-sm-5">
+          <%= f.text_field :address_state, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="address_zip" class="col-sm-2">
+        Zip Code</label>
+        <div class="col-sm-5">
+          <%= f.text_field :address_zip, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <h4>*Select below how you want SolarFlare to alert you when your systems are not
+    behaving efficiently</h4>
+    <br>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="text_alert" class="col-sm-2">
+        By text message?</label>
+        <div class="col-sm-10">
+          <%= f.check_box :text_alert, class:"col-sm-2" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="phone_number" class="col-sm-2">
+        Phone Number</label>
+        <div class="col-sm-5">
+          <%= f.text_field :phone_number, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="email_alert" class="col-sm-2">
+      By Email?</label>
+      <div class="col-sm-10">
+        <%= f.check_box :email_alert, class:"col-sm-2" %>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit class:"btn btn-primary" %>
+      </div>
+    </div>
 </div>
+
+<% end %>

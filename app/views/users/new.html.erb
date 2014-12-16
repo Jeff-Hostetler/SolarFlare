@@ -1,59 +1,57 @@
-<div class="container">
-  <div class="col-sm-12">
-    <div class="col-sm-offset-4 col-sm-4">
+<div class="col-sm-12">
+  <div class="col-sm-offset-4 col-sm-4">
 
-      <h1>New User Sign Up</h1>
+    <h1>New User Sign Up</h1>
 
-      <br>
-      <div class="well">
-        <%= form_for(@user) do |f| %>
-          <% if @user.errors.any? %>
-            <div id="error_explanation">
-              <p><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</p>
+    <br>
+    <div class="well">
+      <%= form_for(@user) do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <p><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</p>
 
-                <ul>
-                <% @user.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %>
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-              <div>
-                <%= f.label :first_name %>
-                <%= f.text_field :first_name, class:"form-control", type:"text"%>
-              </div>
+            <div>
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, class:"form-control", type:"text"%>
+            </div>
 
-              <div>
-                <%= f.label :last_name %>
-                <%= f.text_field :last_name, class:"form-control" %>
-              </div>
+            <div>
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class:"form-control" %>
+            </div>
 
-              <div>
-                <%= f.label :email %>
-                <%= f.email_field :email, class:"form-control" %>
-              </div>
+            <div>
+              <%= f.label :email %>
+              <%= f.email_field :email, class:"form-control" %>
+            </div>
 
-              <div>
-                <%= f.label :password %>
-                <%= f.password_field :password, class:"form-control" %>
-              </div>
+            <div>
+              <%= f.label :password %>
+              <%= f.password_field :password, class:"form-control" %>
+            </div>
 
-              <div>
-                <%= f.label :password_confirmation %>
-                <%= f.password_field :password_confirmation, class:"form-control" %>
-              </div>
+            <div>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, class:"form-control" %>
+            </div>
 
-              <div>
-                <%= f.label :join_mailing_list %>
-                <%= f.check_box :join_mailing_list, class:"form-control, col-sm-2" %>
-              </div>
+            <div>
+              <%= f.label :join_mailing_list %>
+              <%= f.check_box :join_mailing_list, class:"form-control, col-sm-2" %>
+            </div>
 
-                <%= f.submit "Sign Up", class:"btn btn-primary" %>
+              <%= f.submit "Sign Up", class:"btn btn-primary" %>
 
-            <% end %>
-        </div>
-        Already a member of SolarFlare? <%= link_to "Sign in", login_path %>
+          <% end %>
       </div>
-  </div>
+      Already a member of SolarFlare? <%= link_to "Sign in", login_path %>
+    </div>
 </div>

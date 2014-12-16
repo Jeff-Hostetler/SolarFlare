@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users do
+    get "tutorial" => "users#tutorial"
     get "weekly" => "weather#weekly"
     get "daily" => "weather#daily"
     get "cloud_coverage" => "weather#cloud_coverage"

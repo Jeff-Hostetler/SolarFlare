@@ -1,4 +1,4 @@
-<div class="container">
+
   <%= render "weather/form" %>
 
   <% if @user.address_zip != (nil || "") && @sensor.last !=nil  %>
@@ -11,17 +11,17 @@
   <div class="jumbotron">
     <h3>You have not entered your sensor port number into our system. In order for sensor information to display,
        you will need to add the sensor port number to collect light level readings. </h3>
-      <p>Please <%= link_to("edit your info", edit_user_path(@user)) %> </p>
+      <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
+      <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
     </div>
   <% else %>
     <div class="jumbotron">
       <h3>You have not entered your address into our system. In order for sensor and
         weather information to display, you will need to add the address where your solar panels
         are located. </h3>
-        <p>Please <%= link_to("edit your info", edit_user_path(@user)) %> </p>
+        <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
+          <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
     </div>
   <% end %>
 
   <%= render "weather/form2" %>
-
-</div>
