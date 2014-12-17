@@ -2,7 +2,7 @@
   <h1>Hello, <%= current_user.full_name %>
     <br>
     <small>
-      Welcome to SolarFlare! Before you use this site, there are a couple of things that we need from you
+      Welcome to SolarFlare! Before you use this site, there are a couple of things that we need from you.
       Number one is simple, we just need your home address so that we are able to pull up the weather
       in your area. We use cloud coverage to compare agains the readings from your sensor. Feel
       free to <%= link_to "edit your info", edit_user_path(current_user) %> at any time to give us
@@ -11,8 +11,61 @@
     <br>
     <br>
     <small>
-      The second bit is more complicated and the tutorial below will get you started on setting up your
+      Becuase the <strong>SolarFlare Sensor</strong> is still the the prototype phase and not available on the market, the
+      second bit is more complicated. The tutorial below will get you started on setting up your
       sensor so that SolarFlare can use that data to help you keep your solar panels efficient.
     </small>
   <h1>
+</div>
+<div class = "row">
+  <div class= "col-sm-7">
+    <div class="page-header">
+      <h3>Arduino
+        <br>
+        <small>
+          The sensor. We need a sensor to take data. In our case, we are going to use a nifty little
+          device called an <a href="https://www.sparkfun.com/products/12757">Arduino</a>, or least a
+          product that operates using the Arduino IDE. The Arduino is a powerful device that allows you
+          to work on a variety of projects, including building the Sensor
+        <br>
+        <br>
+        
+          The Arduino gets it's own program that it will continue to run as we collect data. The code is
+          written in the Arduino IDE and is available in this tutorial.
+        </small>
+      <h3>
+    </div>
+  </div>
+  <div class = "col-sm-5">
+    <img src="https://cdn.sparkfun.com//assets/parts/9/5/1/8/12757-01.jpg" alt="picture of circuit" class="img-responsive" alt="Responsive image"/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-7">
+    <img src="https://cdn.sparkfun.com/r/600-600/assets/learn_tutorials/3/1/0/RedBoard_circuit_06_01.png" alt="schematic picture" class="img-responsive" alt="Responsive image" />
+  </div>
+  <div class="col-sm-5">
+    <div class="page-header">
+      <h3>Building the circuit
+        <br>
+        <small>
+          On the left, you can see a schematic of the circuit we need to build. Fortunately, the circuit
+          is simple, and you will be able to build this without any issues.
+        <br>
+        <br>
+          Once you get the circuit set up, you should be able to see the light dim as you put your hand
+          over the photoresistor. The photoresistor is acting as our sensor and sends back an output of
+          how much light the sensor is recieving. Visit <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v32/experiment-6-reading-a-photoresistor">here</a>
+          for more information.
+        </small>
+        <h3>
+        </div>
+  </div>
+</div>
+<div class="row">
+  <h3 class="pull-center">
+    Arduino code
+  </h3>
+
 </div>
