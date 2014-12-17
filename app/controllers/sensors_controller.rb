@@ -9,7 +9,6 @@ class SensorsController<ApplicationController
     @sensor = @user.sensors.all
   end
 
-
   private
 
   def confirm_current_user

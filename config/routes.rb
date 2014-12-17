@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     get "weekly" => "weather#weekly"
     get "daily" => "weather#daily"
     get "cloud_coverage" => "weather#cloud_coverage"
-
     get "current_reading" => "sensors#current_reading"
+    get "start_sensor" => "sensors#current_reading"
   end
 
   # these routes are janky fix them fool.

@@ -2,7 +2,7 @@
 require 'serialport'
 require 'pg'
 require 'logger'
-class Sensor
+class StartSensor
 
   def initialize
     @sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
@@ -40,10 +40,12 @@ end
 
 conn = PG.connect( dbname: 'SolarFlare_development' )
 
-data = Sensor.new
+data = StartSensor.new
+
 loop do
   level = data.light_level
-  sleep 5
-  sql = 'insert into sensors (data_point, created_at) values ($1, $2);'
-  conn.exec_params(sql, [level, Time.now.to_s])
+  puts level
+  sql = 'insert into sensors (data_point, created_at, user_id) values ($1, $2, $3);'
+  conn.exec_params(sql, [level, Time.now.to_s, 43])
+  sleep 1
 end
