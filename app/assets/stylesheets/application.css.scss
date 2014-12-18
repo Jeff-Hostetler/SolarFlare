@@ -38,7 +38,7 @@ body{
 }
 /*ABOUT*/
 .aboutBackground{
-  background-image: url(https://farm9.staticflickr.com/8528/8470916287_9118cdbc12_b.jpg);
+  background-image: url(https://farm8.staticflickr.com/7315/8736419240_b364b7d8e1_b.jpg);
   background-size: cover;
 
   h1{
@@ -49,12 +49,51 @@ body{
     color:#FFFFFF;
   }
 }
+.productsBackground{
+    background: -webkit-linear-gradient(black, #FCFCFC); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(black, #FCFCFC); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(black, #FCFCFC); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(black, #FCFCFC); /* Standard syntax */
+    background-size: cover;
+
+    h1{
+      color: #731300;
+
+      p{
+        color: white;
+
+      }
+    }
+}
+
+.between_products_and_about{
+  background: -webkit-linear-gradient(white, #040814); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(white, #040814); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(white, #040814); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(white, #040814); /* Standard syntax */
+  background-size: cover;
+}
+
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
+
+
+
+
+
+
 
 /* miscellaneous */
 

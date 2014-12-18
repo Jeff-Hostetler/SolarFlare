@@ -57,22 +57,23 @@
 
 <%= yield %>
   <div class = "container">
+    <hr>
     <footer>
-      <div class="col-md-2 col-md-offset-10">
-        Created by Jeff Hostetler
-        <%= link_to "https://linkedin.com/in/hostetjm/" do %>
-        <%= image_tag("LinkedIn.png", width: "20em") %>
-        <% end %>
+      <center>
         <%= link_to "https://github.com/Jeff-Hostetler" do %>
-        <%= image_tag("GitHub.png", width: "20em") %>
+        <%= image_tag("GitHub.png", width: "40em") %>
         <% end %>
-        <%= link_to "https://twitter.com/JeffHosBoss" do %>
-        <%= image_tag("Twitter.png", width: "20em") %>
+        <br>
+        <%= link_to "https://linkedin.com/in/hostetjm/" do %>
+        <%= image_tag("LinkedIn.png", width: "40em") %>
         <% end %>
         <%= link_to "http://www.galvanize.it/school" do %>
-        <%= image_tag("galvanize.jpeg", width: "70em") %>
+        <%= image_tag("galvanize.jpeg", width: "100em") %>
         <% end %>
-      </div>
+        <%= link_to "https://twitter.com/JeffHosBoss" do %>
+        <%= image_tag("Twitter.png", width: "40em") %>
+        <% end %>
+      </center>
     </footer>
   </div>
 </body>
