@@ -17,23 +17,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+  font-family: "Artifika";
+  src: url(/assets/fonts/Artifika-Regular.ttf) format("truetype");
+}
+
 /* picture from morguefile */
 body{
   padding-top: 50px;
+  font-family: "Artifika";
 }
 /*INDEX*/
 /* picture from morguefile */
 .indexBackground {
-  background-image: url(https://farm5.staticflickr.com/4063/4259953247_e509cb1a82_b.jpg);
+    background-image: url(https://farm5.staticflickr.com/4063/4259953247_e509cb1a82_b.jpg);
   background-size: cover;
 
   h1{
-    color:#FE7E19;
-    text-shadow: 0px 2px 3px #FAD543;
-  }
-  small{
-    color: #FAD543;
-    text-shadow: 0px 2px 3px #FE7E19;
+    color:#6F6256;
+    font-size: 300%
   }
 }
 /*ABOUT*/
@@ -56,12 +58,10 @@ body{
     background: linear-gradient(black, #FCFCFC); /* Standard syntax */
     background-size: cover;
 
-    h1{
-      color: #731300;
-
-      p{
+    h1 {
+      color: #FBFAF3;
+      p {
         color: white;
-
       }
     }
 }
