@@ -26,5 +26,14 @@ describe SensorsController do
 
       expect(response.status).to eq(404)
     end
+    it "allows admin to see others sensor data" do
+      user = create_user
+      admin= create_admin
+      session[:user_id] = admin.id
+
+      get :current_reading, {user_id: user.id}
+
+      expect(response).to be_success
+    end
   end
 end

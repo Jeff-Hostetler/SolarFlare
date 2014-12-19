@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :confirm_current_user, only: [:show, :edit, :update, :destroy]
+  before_action :index_only_admin, only: [:index]
   skip_before_action :confirm_logged_in, only:[:new, :create]
 
   helper WeatherHelper
@@ -34,11 +35,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+
   end
 
   def update
-    @user = current_user
     if @user.update(params.require(:user).permit(:first_name,
                     :last_name, :project_name, :join_mailing_list,
                     :address, :address_city, :address_state, :address_zip,
@@ -65,7 +65,13 @@ class UsersController < ApplicationController
 
 
   def confirm_current_user
-    unless @user.id == current_user.id
+    unless (@user.id == current_user.id) || (current_user.admin == true)
+      raise AccessDenied
+    end
+  end
+
+  def index_only_admin
+    unless current_user.admin == true
       raise AccessDenied
     end
   end
