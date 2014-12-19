@@ -16,7 +16,7 @@ class WeatherController<ApplicationController
   private
 
   def confirm_current_user
-    unless @user.id == current_user.id
+    unless (@user.id == current_user.id) || (current_user.admin == true)
       raise AccessDenied
     end
   end

@@ -26,6 +26,15 @@ describe WeatherController do
 
       expect(response.status).to eq (404)
     end
+    it "allows admin to user weather pages" do
+      user = create_user
+      admin = create_admin
+      session[:user_id] = admin.id
+
+      get :weekly, user_id: user.id
+
+      expect(response).to be_success
+    end
   end
   describe "#daily" do
     it "does not allow visitors" do
