@@ -2,7 +2,7 @@ class SessionsController < PublicController
   def new
     @user = User.find_by(params[:email])
     unless current_user == nil
-      redirect_to root_path
+      redirect_to current_user
     end
   end
 

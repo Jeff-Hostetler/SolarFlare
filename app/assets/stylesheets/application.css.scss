@@ -34,8 +34,7 @@ body{
   background-size: cover;
 
   h1{
-    color:#6F6256;
-    font-size: 300%
+    color: #3F3F3F;
   }
 }
 /*ABOUT*/
@@ -43,12 +42,8 @@ body{
   background-image: url(https://farm8.staticflickr.com/7315/8736419240_b364b7d8e1_b.jpg);
   background-size: cover;
 
-  h1{
-    color: #56525A;
-  }
-
-  small{
-    color:#FFFFFF;
+  h2{
+    color: #FDFDF3;
   }
 }
 .productsBackground{
@@ -59,11 +54,14 @@ body{
     background-size: cover;
 
     h1 {
-      color: #FBFAF3;
-      p {
-        color: white;
-      }
+      color: #FDFDF3;
     }
+    h3{
+      color: #280000;
+    }
+      p {
+        color: #280000;
+      }
 }
 
 .between_products_and_about{
