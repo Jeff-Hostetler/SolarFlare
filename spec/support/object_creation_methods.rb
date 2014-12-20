@@ -29,9 +29,16 @@ def create_user2
   )
 end
 
+def create_sensor(user)
+  Sensor.create!(
+  data_point: 800,
+  user_id: user.id
+  )
+end
+
 def log_user_in(user)
   visit login_path
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
-  click_on "Sign In"
+  click_on "Log In"
 end

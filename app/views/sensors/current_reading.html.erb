@@ -1,7 +1,7 @@
 
   <%= render "weather/form" %>
 
-  <% if @user.address_zip != (nil || "") && @sensor.last !=nil  %>
+  <% if @sensor.last !=nil  %>
   <h5>The last reading was taken at <%= @sensor.last.created_at %></h3>
     <% data_column_chart = [["Light Level", @sensor.last.data_point]] %>
 
