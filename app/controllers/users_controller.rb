@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   helper SensorHelper
 
   def index
+    @users = User.all
   end
 
   def show

@@ -49,5 +49,14 @@ feature "Users" do
     expect(page).to have_content("1 error prohibited this user from being saved:")
 
   end
+  scenario "admin can see index and all users in list" do
+    admin = create_admin
+    user = create_user
+    log_user_in(admin)
 
+    visit users_path
+
+    expect(page).to have_content("Admin Interface")
+    expect(page).to have_content(user.full_name)
+  end
 end
