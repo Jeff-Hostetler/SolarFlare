@@ -59,4 +59,23 @@ feature "Users" do
     expect(page).to have_content("Admin Interface")
     expect(page).to have_content(user.full_name)
   end
+  scenario "admin sees Users link in nav bar in private index" do
+    admin = create_admin
+    user = create_user
+    log_user_in(admin)
+
+    visit user_path(admin)
+
+    click_on "Users"
+
+    expect(page).to have_content("Admin Interface")
+  end
+  scenario "user does not see users index link in nav bar" do
+    user = create_user
+    log_user_in(user)
+
+    visit user_path(user)
+
+    expect(page).to have_no_content("Users")
+  end
 end
