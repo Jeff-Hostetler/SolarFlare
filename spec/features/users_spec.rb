@@ -59,6 +59,14 @@ feature "Users" do
     expect(page).to have_content("Admin Interface")
     expect(page).to have_content(user.full_name)
   end
+  scenario "user cannot see the users index" do
+    user = create_user
+    log_user_in(user)
+
+    visit users_path
+
+    expect(page).to have_content("The page you were looking for doesn't exist")
+  end
   scenario "admin sees Users link in nav bar in private index" do
     admin = create_admin
     user = create_user
@@ -74,8 +82,26 @@ feature "Users" do
     user = create_user
     log_user_in(user)
 
-    visit user_path(user)
+    visit users_path(user)
 
     expect(page).to have_no_content("Users")
+  end
+  scenario "user can see the tutorial" do
+    user = create_user
+    log_user_in(user)
+
+    visit user_path(user)
+    first(:link, "Tutorial").click
+
+    expect(page).to have_content("Before you use this site")
+  end
+  scenario "user can see the edit thier info page" do
+    user = create_user
+    log_user_in(user)
+
+    visit user_path(user)
+    click_on "Edit your info"
+
+    expect(page).to have_content("We use your address in our software to monitor")
   end
 end
