@@ -13,12 +13,7 @@ describe User do
     expect(user.errors[:password_confirmation].present?).to eq(true)
 
 
-    user = User.new(
-      first_name: "Test",
-      last_name: "Test",
-      email: "test@test.com",
-      password: "123456",
-      password_confirmation: "123456")
+    user = create_user
 
       user.valid?
 
@@ -30,24 +25,18 @@ describe User do
   end
 
   it "has a unique email" do
-    User.create!(
-      first_name: "Test",
-      last_name: "Test",
-      email: "TEST@test.com",
-      password: "password",
-      password_confirmation: "password"
-    )
+    user = create_user
 
-    user = User.new(email: "test@test.com")
-    user.valid?
-
-    expect(user.errors[:email].present?).to eq(true)
-
-
-    user2 = User.new(email: "test2@test.com")
+    user2 = User.new(email: user.email)
     user2.valid?
 
-    expect(user2.errors[:email].present?).to eq(false)
+    expect(user2.errors[:email].present?).to eq(true)
+
+
+    user3 = User.new(email: "test2@test.com")
+    user3.valid?
+
+    expect(user3.errors[:email].present?).to eq(false)
   end
 
   it "has a password between 6 and 20 characters" do
@@ -91,5 +80,11 @@ describe User do
                     address_zip: "10000" )
     expect(user.full_street_address).to eq ("123 Fake St., City, ST 10000")
   end
+  it "has many sensors" do
+    user = create_user
+    sensor = create_sensor(user)
+    sensor2 = create_sensor(user)
 
+    expect(user.sensors.count).to eq(2)
+  end
 end

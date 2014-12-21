@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Sensor, :type => :model do
-  pending "add after setup of elecric imp"
+describe Sensor do
+  it "belongs to a user" do
+    user = create_user
+    sensor = create_sensor(user)
+
+    expect(sensor.user).to eq(user)
+  end
 end
