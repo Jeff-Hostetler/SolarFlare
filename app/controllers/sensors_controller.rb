@@ -13,8 +13,11 @@ class SensorsController<ApplicationController
 
   def create
     @sensor = @user.sensors.new(params.permit(:user_id, :data_point))
-    @sensor.save
-    redirect_to users_path
+    unless ("#{@sensor.data_point}".length != 3)
+      UserMailer.alert_email(@user).deliver unless @sensor.data_point > 200
+      @sensor.save
+    end
+    redirect_to @user
   end
 
   private
