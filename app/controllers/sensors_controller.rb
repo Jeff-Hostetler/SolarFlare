@@ -12,8 +12,9 @@ class SensorsController<ApplicationController
   end
 
   def create
-    @sensor = @user.sensor.new
+    @sensor = @user.sensors.new(params.permit(:user_id, :data_point))
     @sensor.save
+    redirect_to users_path
   end
 
   private
