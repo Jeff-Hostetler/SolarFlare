@@ -177,6 +177,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mail
   pg
   pry
   rails (= 4.1.6)

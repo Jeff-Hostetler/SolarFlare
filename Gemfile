@@ -36,6 +36,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry'
 end
+
+gem 'mail'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
