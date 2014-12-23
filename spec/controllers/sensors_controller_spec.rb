@@ -36,4 +36,14 @@ describe SensorsController do
       expect(response).to be_success
     end
   end
+  # describe "#create" do
+  #   it "sends an email when a data point is less than 200" do
+  #     user  = create_user
+  #
+  #     post :create, user_id: user, sensor: { user_id: user.id, data_point:180}
+  #
+  #     expect(Sensor.count).to eq(1)
+  #
+  #   end
+  # end
 end

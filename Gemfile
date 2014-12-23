@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
 
 gem 'bcrypt', '~> 3.1.5'
 gem 'rails_12factor', group: :production
