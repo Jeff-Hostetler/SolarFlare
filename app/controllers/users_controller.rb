@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :confirm_current_user, only: [:show, :edit, :update, :destroy]
   before_action :index_only_admin, only: [:index]
+  before_action :pivotal, only: [:index]
   skip_before_action :confirm_logged_in, only:[:new, :create]
 
   helper WeatherHelper
@@ -74,6 +75,13 @@ class UsersController < ApplicationController
   def index_only_admin
     unless current_user.admin == true
       raise AccessDenied
+    end
+  end
+
+  def pivotal
+    if current_user.admin  == true
+      @pivotal_project = Tracker.new.pivotal_project(current_user)
+      @pivotal_stories = Tracker.new.pivotal_stories(current_user)
     end
   end
 

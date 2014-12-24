@@ -8,7 +8,8 @@
 </div>
 
 <div class = "row">
-  <div class = "col-sm-6">
+  <div class = "col-sm-5">
+    <h3>All Users</h3>
     <table class="table table-striped">
       <thead>
       <th>
@@ -36,6 +37,36 @@
       </tr>
       <% end %>
     </tbody>
+    </table>
+  </div>
+
+  <div class = "col-sm-1">
+
+  </div>
+
+  <div class = "col-sm-6">
+    <h3>Pivotal Tracker for <%= @pivotal_project[:name] %></h3>
+    <table class = "table table-striped">
+      <thead>
+        <th>
+          Story name
+        </th>
+        <th>
+          Status
+        </th>
+      </thead>
+      <tbody>
+        <% @pivotal_stories.reverse.each do |story| %>
+        <tr>
+          <td>
+            <%= link_to story[:name], story[:url]%>
+          </td>
+          <td>
+            <%= story[:current_state] %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

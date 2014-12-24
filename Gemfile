@@ -38,6 +38,7 @@ group :development, :test do
   gem 'pry'
 end
 
+gem 'faraday'
 gem 'mail'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

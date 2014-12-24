@@ -78,6 +78,17 @@ feature "Users" do
 
     expect(page).to have_content("Admin Interface")
   end
+  scenario "admin sees pivotal projects on user index" do
+    admin = create_admin
+    user = create_user
+    log_user_in(admin)
+
+    visit user_path(admin)
+
+    click_on "Users"
+
+    expect(page).to have_content("Pivotal Tracker for SolarFlare")
+  end
   scenario "user does not see users index link in nav bar" do
     user = create_user
     log_user_in(user)
