@@ -11,9 +11,19 @@ class SensorsController<ApplicationController
   end
 
   def create
-    @sensor = @user.sensors.new(params.permit(:user_id, :data_point))
+    @sensor = @user.sensors.new(params.permit(:user_id, :data_point, :created_at))
     unless ("#{@sensor.data_point}".length != 3)
-      UserMailer.alert_email(@user).deliver unless @sensor.data_point > 200
+      if @sensor.data_point < 200
+        #mailer
+        # UserMailer.alert_email(@user).deliver
+        #twilio
+        @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_TOKEN']
+        @client.messages.create(
+        from: '+17205065738',
+        to: @user.phone_number,
+        body: 'Light level is too damn low! Love, SolarFlare.'
+        )
+      end
       @sensor.save
     end
     redirect_to @user
