@@ -15,14 +15,18 @@ class SensorsController<ApplicationController
     unless ("#{@sensor.data_point}".length != 3)
       if @sensor.data_point < 200
         #mailer
-        UserMailer.alert_email(@user).deliver
+        if (@user.email_alert == true)
+          UserMailer.alert_email(@user).deliver
+        end
         #twilio
-        @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_TOKEN']
-        @client.messages.create(
-        from: '+17205065738',
-        to: @user.phone_number,
-        body: 'Light level is too damn low! Love, SolarFlare.'
-        )
+        if (@user.text_alert == true) && (@user.phone_number != nil)
+          @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_TOKEN']
+          @client.messages.create(
+            from: '+17205065738',
+            to: @user.phone_number,
+            body: 'Light level is too damn low! Love, SolarFlare.'
+          )
+        end
       end
       @sensor.save
     end
