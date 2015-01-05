@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   before_action :index_only_admin, only: [:index]
   skip_before_action :confirm_logged_in, only:[:new, :create]
 
-  helper WeatherHelper
-  helper SensorHelper
+  include WeatherHelper
+  include SensorHelper
 
   def index
     @users = User.all
@@ -14,6 +14,27 @@ class UsersController < ApplicationController
   end
 
   def show
+    unless (@user.address_zip == nil) || (@user.address_zip.lstrip.empty?)
+      @data_past_cloud_cover = [[Time.now.to_date, weather_x_days_ago_hash(0)["cloudCover"]],
+      [(Time.now-1.day).to_date, weather_x_days_ago_hash(1)["cloudCover"]],
+      [(Time.now-2.day).to_date, weather_x_days_ago_hash(2)["cloudCover"]],
+      [(Time.now-3.day).to_date, weather_x_days_ago_hash(3)["cloudCover"]],
+      [(Time.now-4.day).to_date, weather_x_days_ago_hash(4)["cloudCover"]],
+      [(Time.now-5.day).to_date, weather_x_days_ago_hash(5)["cloudCover"]],
+      [(Time.now-6.day).to_date, weather_x_days_ago_hash(6)["cloudCover"]],
+      [(Time.now-7.day).to_date, weather_x_days_ago_hash(7)["cloudCover"]],
+      ]
+
+      @data_sensor_weekly_graph = [[Time.now.to_date, sensor_percentage_average_x_days_ago(0)],
+      [(Time.now-1.day).to_date, sensor_percentage_average_x_days_ago(1)],
+      [(Time.now-2.day).to_date, sensor_percentage_average_x_days_ago(2)],
+      [(Time.now-3.day).to_date, sensor_percentage_average_x_days_ago(3)],
+      [(Time.now-4.day).to_date, sensor_percentage_average_x_days_ago(4)],
+      [(Time.now-5.day).to_date, sensor_percentage_average_x_days_ago(5)],
+      [(Time.now-6.day).to_date, sensor_percentage_average_x_days_ago(6)],
+      [(Time.now-7.day).to_date, sensor_percentage_average_x_days_ago(7)],
+      ]
+    end
   end
 
 

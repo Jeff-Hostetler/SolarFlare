@@ -1,71 +1,70 @@
+<%= render 'form' %>
+<% if current_user.address_zip != (nil || "") %>
+  <div class="page-header">
+    <h1>
+      <small>
+        <br>
+        <%= link_to "Full forecast", user_weekly_path(current_user) %>
+      </small>
+    </h1>
+  </div>
 
-  <%= render 'form' %>
-  <% if current_user.address_zip != (nil || "") %>
-    <div class="page-header">
-      <h1>
-        <small>
-          <br>
-          <%= link_to "Full forecast", user_weekly_path(current_user) %>
-        </small>
-      </h1>
-    </div>
-
-    <div class = "col-sm-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Cloud Coverage</h3>
-        </div>
-        <div class="panel-body">
-          <%= cloud_cover_now %>%
-        </div>
+  <div class = "col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Cloud Coverage</h3>
+      </div>
+      <div class="panel-body">
+        <%= cloud_cover_now %>%
       </div>
     </div>
+  </div>
 
-    <div class = "col-sm-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Percipitation Chance</h3>
-        </div>
-        <div class="panel-body">
-          <%= precipitation_probability %>%
-        </div>
+  <div class = "col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Percipitation Chance</h3>
+      </div>
+      <div class="panel-body">
+        <%= precipitation_probability %>%
       </div>
     </div>
+  </div>
 
-    <div class = "col-sm-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Sunrise/ Sunset Time</h3>
-        </div>
-        <div class="panel-body">
-          <%= sunrise_time %> AM / <%= sunset_time %> PM
-        </div>
+  <div class = "col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sunrise/ Sunset Time</h3>
+      </div>
+      <div class="panel-body">
+        <%= sunrise_time %> AM / <%= sunset_time %> PM
       </div>
     </div>
+  </div>
 
-   <div class = "col-sm-6">
-     <div class="panel panel-default">
-       <div class="panel-heading">
-         <h3 class="panel-title">Max/ Min Temp (degrees F)</h3>
-       </div>
-       <div class="panel-body">
-         <%= temperature_max%>/ <%= temperature_min %>
-       </div>
+ <div class = "col-sm-6">
+   <div class="panel panel-default">
+     <div class="panel-heading">
+       <h3 class="panel-title">Max/ Min Temp (degrees F)</h3>
+     </div>
+     <div class="panel-body">
+       <%= temperature_max%>/ <%= temperature_min %>
      </div>
    </div>
+ </div>
 
-   <p>
-     Powered by Forecast.io
-   </p>
+ <p>
+   Powered by Forecast.io
+ </p>
 
-   <% else %>
-   <div class="jumbotron">
-     <h3>You have not entered your address into our system. In order for sensor and
-       weather information to display, you will need to add the address where your solar panels
-       are located. </h3>
-       <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
-         <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
-     </div>
+ <% else %>
+ <div class="jumbotron">
+   <h3>You have not entered your address into our system. In order for sensor and
+     weather information to display, you will need to add the address where your solar panels
+     are located. </h3>
+     <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
+       <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
+   </div>
 
-  <% end %>
-  <%= render "form2" %>
+<% end %>
+<%= render "form2" %>

@@ -1,6 +1,7 @@
 require 'date'
 module WeatherHelper
 
+
   def weather_now_hash
     forecast = ForecastIO.forecast(current_user.latitude, current_user.longitude, time: Time.now.to_i)
     daily_data = forecast.to_hash["daily"]
@@ -48,18 +49,6 @@ module WeatherHelper
     result_string = result_string[1..-1]
     result_hash = eval(result_string)
   end
+
+
 end
-
-
-
-    # example hash data
-    # {"time"=>1415779200, "summary"=>"Light rain overnight.", "icon"=>"rain",
-    #   "sunriseTime"=>1415803569, "sunsetTime"=>1415840497, "moonPhase"=>0.7,
-    #   "precipIntensity"=>0.0003, "precipIntensityMax"=>0.0022,
-    #   "precipIntensityMaxTime"=>1415862000, "precipProbability"=>0.15,
-    #   "precipType"=>"rain", "temperatureMin"=>54.9, "temperatureMinTime"=>1415797200,
-    #   "temperatureMax"=>65.77, "temperatureMaxTime"=>1415833200,
-    #   "apparentTemperatureMin"=>54.9, "apparentTemperatureMinTime"=>1415797200,
-    #   "apparentTemperatureMax"=>65.77, "apparentTemperatureMaxTime"=>1415833200,
-    #   "dewPoint"=>48.85, "humidity"=>0.68, "windSpeed"=>0.47, "windBearing"=>282,
-    #   "visibility"=>9.84, "cloudCover"=>0.77, "pressure"=>1015.96, "ozone"=>261.91}

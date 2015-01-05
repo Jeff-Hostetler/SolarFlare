@@ -1,33 +1,17 @@
-
-
-  <%= render 'form' %>
-
-  <% if current_user.address_zip != (nil || "") %>
-
-  <%= link_to "Full forecast", user_weekly_path(current_user) %>
-
-  <% data_line_graph = [[Time.now, weather_x_days_ago_hash(0)["cloudCover"]],
-  [Time.now+1.day, weather_x_days_ago_hash(-1)["cloudCover"]],
-  [Time.now+2.day, weather_x_days_ago_hash(-2)["cloudCover"]],
-  [Time.now+3.day, weather_x_days_ago_hash(-3)["cloudCover"]],
-  [Time.now+4.day, weather_x_days_ago_hash(-4)["cloudCover"]],
-  [Time.now+5.day, weather_x_days_ago_hash(-5)["cloudCover"]],
-  [Time.now+6.day, weather_x_days_ago_hash(-6)["cloudCover"]],
-  [Time.now+7.day, weather_x_days_ago_hash(-7)["cloudCover"]],
-  ] %>
-  <%=line_chart data_line_graph, colors: ["red"], min: 0, max: 1.1%>
-  <p>
-    Powered by Forecast.io
-  </p>
-
-  <% else %>
-  <div class="jumbotron">
-    <h3>You have not entered your address into our system. In order for sensor and
-      weather information to display, you will need to add the address where your solar panels
-      are located. </h3>
-      <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
-        <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
-    </div>
-    <% end %>
-
-  <%= render "form2" %>
+<%= render 'form' %>
+<% if current_user.address_zip != (nil || "") %>
+<%= link_to "Full forecast", user_weekly_path(current_user) %>
+<%=line_chart @data_line_graph, colors: ["red"], min: 0, max: 1.1%>
+<p>
+  Powered by Forecast.io
+</p>
+<% else %>
+<div class="jumbotron">
+  <h3>You have not entered your address into our system. In order for sensor and
+    weather information to display, you will need to add the address where your solar panels
+    are located. </h3>
+    <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
+      <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
+  </div>
+  <% end %>
+<%= render "form2" %>
