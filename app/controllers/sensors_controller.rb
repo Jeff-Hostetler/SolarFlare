@@ -30,7 +30,7 @@ class SensorsController<ApplicationController
       end
       @sensor.save
     end
-    redirect_to @user
+    redirect_to root_path
   end
 
   private

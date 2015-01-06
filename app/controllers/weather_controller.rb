@@ -8,14 +8,14 @@ class WeatherController<ApplicationController
 
   def weekly
     unless (@user.address_zip == nil) || (@user.address_zip.lstrip.empty?)
-      @data_line_graph = [[Time.now.to_date, weather_now_hash["temperatureMax"]],
-      [(Time.now+1.day).to_date, weather_tomorrow_hash["temperatureMax",]],
-      [(Time.now+2.day).to_date, weather_in_two_days["temperatureMax"]],
-      [(Time.now+3.day).to_date, weather_in_three_days["temperatureMax"]],
-      [(Time.now+4.day).to_date, weather_in_four_days["temperatureMax"]],
-      [(Time.now+5.day).to_date, weather_in_five_days["temperatureMax"]],
-      [(Time.now+6.day).to_date, weather_in_six_days["temperatureMax"]],
-      [(Time.now+7.day).to_date, weather_in_seven_days["temperatureMax"]]
+      @data_line_graph = [[Time.now, weather_x_days_ago_hash(0)["temperatureMax"]],
+      [Time.now+1.day, weather_x_days_ago_hash(-1)["temperatureMax"]],
+      [Time.now+2.day, weather_x_days_ago_hash(-2)["temperatureMax"]],
+      [Time.now+3.day, weather_x_days_ago_hash(-3)["temperatureMax"]],
+      [Time.now+4.day, weather_x_days_ago_hash(-4)["temperatureMax"]],
+      [Time.now+5.day, weather_x_days_ago_hash(-5)["temperatureMax"]],
+      [Time.now+6.day, weather_x_days_ago_hash(-6)["temperatureMax"]],
+      [Time.now+7.day, weather_x_days_ago_hash(-7)["temperatureMax"]],
       ]
     end
   end
