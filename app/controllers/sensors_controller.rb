@@ -13,6 +13,7 @@ class SensorsController<ApplicationController
 
   def create
     @sensor = @user.sensors.new(params.permit(:user_id, :data_point, :created_at))
+    p "data point:#{@sensor.data_point} user: #{@sensor.user_id} ***********************************************************"
     unless ("#{@sensor.data_point}".length != 3)
       if @sensor.data_point < 200
         #mailer
@@ -30,7 +31,6 @@ class SensorsController<ApplicationController
         end
       end
       @sensor.save
-      p "POST success**************************************************************************"
     end
     redirect_to root_path
   end
