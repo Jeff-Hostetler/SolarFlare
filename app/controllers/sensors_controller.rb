@@ -30,7 +30,7 @@ class SensorsController<ApplicationController
         end
       end
       @sensor.save
-      redirect_to @user
+      p "POST success**************************************************************************"
     end
     redirect_to root_path
   end
