@@ -3,8 +3,9 @@ class SensorsController<ApplicationController
   before_action do
     @user = User.find(params[:user_id])
   end
-  before_action :confirm_current_user
+  before_action :confirm_current_user, only:[:current_reading]
   skip_before_action :verify_authenticity_token
+  skip_before_action :confirm_logged_in, only:[:create]
 
   def current_reading
     @sensor = @user.sensors.all
