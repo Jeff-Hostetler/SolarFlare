@@ -12,7 +12,7 @@
     </div>
 <% else %>
 <%= line_chart [{name: "Light level", data: weekly_sensor_data},
-  {name: "Cloud cover", data: past_week_weather_data}],
+  {name: "Cloud cover", data: past_week_cloud_data}],
   min: 0, max: 1.1%>
   <p>
     Powered by Forecast.io

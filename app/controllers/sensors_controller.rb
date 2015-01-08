@@ -8,7 +8,7 @@ class SensorsController<ApplicationController
   skip_before_action :confirm_logged_in, only:[:create]
 
   def current_reading
-    @sensor = @user.sensors.all
+    @sensor = @user.sensors.last
   end
 
   def create

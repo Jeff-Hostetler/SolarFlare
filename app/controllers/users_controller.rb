@@ -14,20 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    unless (@user.address_zip == nil) || (@user.address_zip.lstrip.empty?)
-      @data_past_cloud_cover = [[Time.now.to_date, weather_x_days_ago_hash(0)["cloudCover"]],
-      [(Time.now-1.day).to_date, weather_x_days_ago_hash(1)["cloudCover"]],
-      [(Time.now-2.day).to_date, weather_x_days_ago_hash(2)["cloudCover"]],
-      [(Time.now-3.day).to_date, weather_x_days_ago_hash(3)["cloudCover"]],
-      [(Time.now-4.day).to_date, weather_x_days_ago_hash(4)["cloudCover"]],
-      [(Time.now-5.day).to_date, weather_x_days_ago_hash(5)["cloudCover"]],
-      [(Time.now-6.day).to_date, weather_x_days_ago_hash(6)["cloudCover"]],
-      [(Time.now-7.day).to_date, weather_x_days_ago_hash(7)["cloudCover"]],
-      ]
-    end
-
   end
-
 
   def new
     @user = User.new
@@ -50,7 +37,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -63,7 +49,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
 
   private
 

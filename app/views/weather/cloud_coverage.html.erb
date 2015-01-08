@@ -1,7 +1,7 @@
 <%= render 'form' %>
 <% if current_user.address_zip != (nil || "") %>
 <%= link_to "Full forecast", user_weekly_path(current_user) %>
-<%=line_chart @data_line_graph, colors: ["red"], min: 0, max: 1.1%>
+<%=line_chart next_week_cloud_data, colors: ["red"], min: 0, max: 1.1%>
 <p>
   Powered by Forecast.io
 </p>
