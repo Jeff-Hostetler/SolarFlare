@@ -17,7 +17,7 @@
 
 setInterval(function() {
   console.log('in interval')
-  $.getJSON('http://localhost:3000/users/'+ $("#userInfo").val() +'/current_reading', function(data) {
-    $('body').append(data.data_point);
+  $.getJSON(window.location.origin + '/users/'+ $("#userInfo").val() +'/current_reading', function(data) {
+     $('body').append(data.data_point);
   })
 }, 1000);
