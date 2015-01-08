@@ -8,7 +8,15 @@ class SensorsController<ApplicationController
   skip_before_action :confirm_logged_in, only:[:create]
 
   def current_reading
-    @sensor = @user.sensors.last
+    respond_to do |format|
+
+      format.html {
+        @sensor = @user.sensors.last
+      }
+      format.json { render json: @user.sensors.last }
+
+    end
+
   end
 
   def create

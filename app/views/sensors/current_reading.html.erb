@@ -2,7 +2,8 @@
   <%= render "weather/form" %>
 
   <% if @sensor !=nil  %>
-  <h5>The last reading was taken at <%= @sensor.created_at.getlocal.strftime("%A, %B %d, %Y at %l%p") %></h3>
+  <input id="userInfo" type="hidden" value="<%= current_user.id %>">
+  <h5>The last reading was taken at <%= @sensor.created_at.getlocal.strftime("%A, %B %d, %Y at %l%M%p") %></h3>
     <% data_column_chart = [["Light Level", @sensor.data_point]] %>
 
     <%= column_chart data_column_chart, min:0, max:1100 %>
