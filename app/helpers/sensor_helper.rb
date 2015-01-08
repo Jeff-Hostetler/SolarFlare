@@ -17,4 +17,14 @@ module SensorHelper
     average / 1000
   end
 
+  def weekly_sensor_data
+    data = []
+    i = 0
+    until i > 7
+      data<< [(Time.now-i.day).to_date, sensor_percentage_average_x_days_ago(i)]
+      i +=1
+    end
+    data
+  end
+
 end

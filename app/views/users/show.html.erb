@@ -11,9 +11,8 @@
       <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started.</p>
     </div>
 <% else %>
-
-<%= line_chart [{name: "Light level", data: @data_sensor_weekly_graph},
-  {name: "Cloud cover", data: @data_past_cloud_cover}],
+<%= line_chart [{name: "Light level", data: weekly_sensor_data},
+  {name: "Cloud cover", data: past_week_weather_data}],
   min: 0, max: 1.1%>
   <p>
     Powered by Forecast.io

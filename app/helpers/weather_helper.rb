@@ -50,5 +50,14 @@ module WeatherHelper
     result_hash = eval(result_string)
   end
 
+  def past_week_weather_data
+    data = []
+    i = 0
+    until i > 7
+      data<< [(Time.now-i.day).to_date, weather_x_days_ago_hash(i)["cloudCover"]]
+      i +=1
+    end
+    data
+  end
 
 end

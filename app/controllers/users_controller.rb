@@ -24,17 +24,8 @@ class UsersController < ApplicationController
       [(Time.now-6.day).to_date, weather_x_days_ago_hash(6)["cloudCover"]],
       [(Time.now-7.day).to_date, weather_x_days_ago_hash(7)["cloudCover"]],
       ]
-
-      @data_sensor_weekly_graph = [[Time.now.to_date, sensor_percentage_average_x_days_ago(0)],
-      [(Time.now-1.day).to_date, sensor_percentage_average_x_days_ago(1)],
-      [(Time.now-2.day).to_date, sensor_percentage_average_x_days_ago(2)],
-      [(Time.now-3.day).to_date, sensor_percentage_average_x_days_ago(3)],
-      [(Time.now-4.day).to_date, sensor_percentage_average_x_days_ago(4)],
-      [(Time.now-5.day).to_date, sensor_percentage_average_x_days_ago(5)],
-      [(Time.now-6.day).to_date, sensor_percentage_average_x_days_ago(6)],
-      [(Time.now-7.day).to_date, sensor_percentage_average_x_days_ago(7)],
-      ]
     end
+
   end
 
 
@@ -106,5 +97,4 @@ class UsersController < ApplicationController
       @pivotal_stories = Tracker.new.pivotal_stories(current_user)
     end
   end
-
 end
