@@ -13,8 +13,7 @@ class SensorsController<ApplicationController
 
   def create
     @sensor = @user.sensors.new(params.permit(:user_id, :data_point, :created_at))
-    p "data point:#{@sensor.data_point} user: #{@sensor.user_id} ***********************************************************"
-    unless ("#{@sensor.data_point}".length != 3)
+    if data_validation(@sensor)
       if @sensor.data_point < 200
         #mailer
         if (@user.email_alert == true)
@@ -40,6 +39,14 @@ class SensorsController<ApplicationController
   def confirm_current_user
     unless (@user.id == current_user.id) || (current_user.admin == true)
       raise AccessDenied
+    end
+  end
+
+  def data_validation(sensor)
+    if (("#{sensor.data_point}".length == 3) &&
+        ("08:00" < DateTime.now.strftime("%H:%M")) &&
+        ( DateTime.now.strftime("%H:%M") < "16:00"))
+      true
     end
   end
 
