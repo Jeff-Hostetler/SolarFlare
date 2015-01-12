@@ -10,7 +10,7 @@ feature "Sensors" do
     visit user_current_reading_path(user)
 
     expect(page).to have_no_content("You have not entered your sensor port")
-    expect(page).to have_content("last reading was taken at")
+    expect(page).to have_content("Current Readings")
   end
   scenario "allows user to see sensor data on current" do
     user = create_user
@@ -20,7 +20,7 @@ feature "Sensors" do
     visit user_current_reading_path(user)
 
     expect(page).to have_no_content("You have not entered your sensor port")
-    expect(page).to have_content("last reading was taken at")
+    expect(page).to have_content("Current Readings")
   end
   scenario "does not allow user to see another users data" do
     user = create_user

@@ -87,8 +87,16 @@ hr {
   background-color: #333; /* Modern Browsers */
 }
 
+/* Sensor */
+.chartTitle{
+  text-align: center;
+}
 
-
+#realTimeChart{
+  width: 75%;
+  height: 250px;
+  margin: 0 auto;
+}
 
 
 

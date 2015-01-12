@@ -3,9 +3,10 @@
 
   <% if @sensor !=nil  %>
     <input id="userInfo" type="hidden" value="<%= current_user.id %>">
-    <h5>The last reading was taken at <%= @sensor.created_at.getlocal.strftime("%A, %B %d, %Y at %l%M%p") %></h3>
-
-    <div id="myChart" class="epoch category10" style="width: 75%; height: 250px; margin: 0 auto;"></div>
+    <div class="chartTitle">
+      <h2>Current Readings</h2>
+    </div>
+    <div id="realTimeChart" class="epoch category10"></div>
 
   <% elsif @sensor == nil %>
   <div class="jumbotron">
