@@ -99,6 +99,20 @@ hr {
   width: 75%;
   height: 250px;
   margin: 0 auto;
+  border-radius: 20px;
+}
+
+.bright{
+  background-color: rgba(255,255,255,1);
+  transition: background-color 3s;
+}
+.averageLight{
+  background-color: rgba(161, 149, 149, 1);
+  transition: background-color 3s;
+}
+.dark{
+  background-color: rgba(167, 148, 148, 1);
+  transition: background-color 3s;
 }
 
 
