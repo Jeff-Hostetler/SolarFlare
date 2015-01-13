@@ -6,10 +6,6 @@ class WeatherController<ApplicationController
 
   include WeatherHelper
 
-  def weekly
-
-  end
-
   def daily
   end
 

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :users do
     get "tutorial" => "users#tutorial"
-    get "weekly" => "weather#weekly"
     get "daily" => "weather#daily"
     get "cloud_coverage" => "weather#cloud_coverage"
     resources :sensors

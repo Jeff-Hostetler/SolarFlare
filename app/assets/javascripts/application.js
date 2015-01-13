@@ -15,6 +15,7 @@
 //= require_tree .
 //= require bootstrap
 
+/*real time sensor data graph, current_reading*/
 $(function(){
 
   var start_data = [{
@@ -35,7 +36,6 @@ $(function(){
         time: (Date.now()/1000),
         y: responseData.data_point
       }];
-
 
       chart.push(newData);
 
