@@ -41,10 +41,12 @@ $(function(){
       if (responseData.data_point < 400){
         $('#realTimeChart').addClass('dark');
         $('#realTimeChart').removeClass('bright');
+        $('.realTimeChartMessage').fadeTo('slow', 100);
       }
       else{
         $('#realTimeChart').addClass('bright');
         $('#realTimeChart').removeClass('dark');
+        $('.realTimeChartMessage').fadeTo('slow', 0);
       }
     });
   }, 1000);

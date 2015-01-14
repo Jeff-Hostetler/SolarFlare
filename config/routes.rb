@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     get "cloud_coverage" => "weather#cloud_coverage"
     resources :sensors
     get "current_reading" => "sensors#current_reading"
-
   end
 
 

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :index_only_admin, only: [:index]
   skip_before_action :confirm_logged_in, only:[:new, :create]
 
-  include WeatherHelper
   include SensorHelper
 
   def index
@@ -14,6 +13,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    if (@user.address_zip != nil)
+      @past_week_cloud_data = Forecaster.new(@user, Time.current).past_week_cloud_data
+    end
   end
 
   def new

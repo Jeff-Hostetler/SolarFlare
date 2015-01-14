@@ -91,54 +91,30 @@ hr {
 }
 
 /* Sensor */
+/* real time chart */
 .chartTitle{
   text-align: center;
 }
 
 #realTimeChart{
   width: 75%;
-  height: 250px;
+  height: 350px;
   margin: 0 auto;
   border-radius: 20px;
 }
 
 .bright{
   background-color: rgba(255,255,255,1);
-  transition: background-color 3s;
-}
-.averageLight{
-  background-color: rgba(161, 149, 149, 1);
-  transition: background-color 3s;
+  transition: background-color 5s;
 }
 .dark{
   background-color: rgba(167, 148, 148, 1);
-  transition: background-color 3s;
+  transition: background-color 5s;
 }
-
-
-
-
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
-#error_explanation {
+.realTimeChartMessage{
   color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
+  border: 1px solid red;
+  border-radius: 3px;
+  width: 25%;
+  margin: 0 auto;
 }
