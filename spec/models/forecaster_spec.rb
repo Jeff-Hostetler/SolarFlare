@@ -517,19 +517,82 @@ describe Forecaster do
     it 'calls ForecastIO and returns a subset of the data' do
       user = create_user
       expect(ForecastIO).to receive(:forecast){ api_data }
+
       f = Forecaster.new(user, Time.current)
       f.get_forecast
       expect(f.data['time']).to eq(1421132400)
     end
 
-    # it "has a cloud_cover method" do
-    #   user = create_user
-    #   expect(ForecastIO).to receive(:forecast){ api_data }
-    #   f = Forecaster.new(user, Time.current).get_forecast
-    #   f =  f.cloud_cover
-    #
-    #   expect(f).to eq(100)
-    # end
+    it "has a cloud_cover method" do
+      user = create_user
+      expect(ForecastIO).to receive(:forecast){ api_data }
 
+      f = Forecaster.new(user, Time.current)
+      f.get_forecast
+      result = f.cloud_cover
+
+      expect(result).to eq(69)
+    end
+    it "has a precipitation_probability method" do
+      user = create_user
+      expect(ForecastIO).to receive(:forecast){ api_data }
+
+      f = Forecaster.new(user, Time.current)
+      f.get_forecast
+      result = f.precipitation_probability
+
+      expect(result).to eq(45)
+    end
+    it "has a weather_summary method" do
+      user = create_user
+      expect(ForecastIO).to receive(:forecast){ api_data }
+
+      f = Forecaster.new(user, Time.current)
+      f.get_forecast
+      result = f.weather_summary
+
+      expect(result).to eq("Light snow (under 1 in.) in the morning.")
+    end
+    it "has a temperature_max method" do
+      user = create_user
+      expect(ForecastIO).to receive(:forecast){ api_data }
+
+      f = Forecaster.new(user, Time.current)
+      f.get_forecast
+      result = f.temperature_max
+
+      expect(result).to eq(34.03)
+    end
+    it "has a temperature_min method" do
+      user = create_user
+      expect(ForecastIO).to receive(:forecast){ api_data }
+
+      f = Forecaster.new(user, Time.current)
+      f.get_forecast
+      result = f.temperature_min
+
+      expect(result).to eq(21.03)
+    end
+    it "has a sunrise_time method" do
+      user = create_user
+      expect(ForecastIO).to receive(:forecast){ api_data }
+
+      f = Forecaster.new(user, Time.current)
+      f.get_forecast
+      result = f.sunrise_time
+
+      expect(result).to eq("07:22")
+    end
+    it "has a sunset_time method" do
+      user = create_user
+      expect(ForecastIO).to receive(:forecast){ api_data }
+
+      f = Forecaster.new(user, Time.current)
+      f.get_forecast
+      result = f.sunset_time
+
+      expect(result).to eq("16:58")
+    end
+    #think of how to test for weeks worth methods
   end
 end
