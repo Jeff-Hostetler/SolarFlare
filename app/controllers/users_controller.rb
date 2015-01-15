@@ -33,7 +33,6 @@ class UsersController < ApplicationController
                                             Please edit your profile to fill out other
                                             information that is necessary to use SolarFlare effectively.'
         else
-          #for some reason this renders me at new with index in the url
           render :new
         end
   end
@@ -43,7 +42,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(params.require(:user).permit(:first_name,
-                    :last_name, :project_name, :join_mailing_list,
+                    :last_name, :email, :project_name, :join_mailing_list,
                     :address, :address_city, :address_state, :address_zip,
                     :phone_number, :text_alert, :email_alert, :longitude, :latitude))
       redirect_to current_user, notice: 'Your info has been saved'
