@@ -24,17 +24,24 @@
 
 /* picture from morguefile */
 body{
-  padding-top: 50px;
   font-family: "Artifika";
 }
-.navbar{
-    background-color: rbga(255, 255, 255, 0.5)
+.container{
+  padding-top: 50px;
 }
+.navbar-inverse {
+    background-color: RGBA(0, 0, 0, 0.75);
+    border-color: RGBA(119, 119, 119, 0.75);
+    border-width: 0 0 3px;
+}
+
+
+
 /*INDEX*/
-/* picture from morguefile */
 .indexBackground {
-    background-image: url(https://farm5.staticflickr.com/4063/4259953247_e509cb1a82_b.jpg);
+  background-image: url(https://farm5.staticflickr.com/4063/4259953247_e509cb1a82_b.jpg);
   background-size: cover;
+  height: 800px;
 
   h1{
     color: #3F3F3F;
@@ -44,6 +51,7 @@ body{
 .aboutBackground{
   background-image: url(https://farm8.staticflickr.com/7315/8736419240_b364b7d8e1_b.jpg);
   background-size: cover;
+  height: 810px;
 
   h2{
     color: #FDFDF3;
@@ -55,6 +63,7 @@ body{
     background: -moz-linear-gradient(black, #FCFCFC); /* For Firefox 3.6 to 15 */
     background: linear-gradient(black, #FCFCFC); /* Standard syntax */
     background-size: cover;
+
 
     h1 {
       color: #FDFDF3;
@@ -68,11 +77,12 @@ body{
 }
 
 .between_products_and_about{
-  background: -webkit-linear-gradient(white, #040814); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(white, #040814); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(white, #040814); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(white, #040814); /* Standard syntax */
+  background: -webkit-linear-gradient(RGBA(250, 250, 250, 1), #040814); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(RGBA(250, 250, 250, 1), #040814); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(RGBA(250, 250, 250, 1), #040814); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(RGBA(250, 250, 250, 1), #040814); /* Standard syntax */
   background-size: cover;
+  height: 200px;
 }
 
 

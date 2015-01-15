@@ -53,7 +53,7 @@ class SensorsController<ApplicationController
   def data_validation(sensor)
     if (("#{sensor.data_point}".length == 3) &&
         ("08:00" < DateTime.now.strftime("%H:%M")) &&
-        ( DateTime.now.strftime("%H:%M") < "18:00"))
+        ( DateTime.now.strftime("%H:%M") < "20:00"))
       true
     end
   end
