@@ -1,5 +1,4 @@
 <%= render 'weather/form' %>
-<%= link_to("Edit your info", edit_user_path, class:"btn btn-primary btn-sm") %>
 
 <% if (@user.address_zip == nil) || (@user.address_zip.lstrip.empty?)%>
 <br>

@@ -86,10 +86,29 @@ body{
 }
 
 /*TUTORIAL*/
-/*parallax*/
-div {
-  display: block;
+.gist{
+  padding-top: 50px;
 }
+.gist1{
+  width: 50%;
+  text-align: center;
+  float: left;
+  a {
+    color: black;
+    text-decoration: underline
+  }
+}
+.gist2{
+  width: 50%;
+  text-align: center;
+  float: right;
+  a {
+    color: black;
+    text-decoration: underline
+  }
+}
+/*parallax*/
+
 .parallax {
   perspective: 1px;
   height: 100vh;
@@ -119,6 +138,7 @@ div {
 }
 .parallax_section0{
   background-color: white;
+  padding-top: 600px;
 }
 .parallax_section1{
   background-color: white;
