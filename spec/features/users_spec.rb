@@ -104,7 +104,7 @@ feature "Users" do
     visit user_path(user)
     first(:link, "Tutorial").click
 
-    expect(page).to have_content("Before you use this site")
+    expect(page).to have_content("Before we get started...")
   end
   scenario "user can see the edit thier info page" do
     user = create_user
