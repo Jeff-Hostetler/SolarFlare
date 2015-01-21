@@ -26,5 +26,18 @@ module SensorHelper
     end
     data
   end
-
+  #have to test after getting some data over a couple of days
+  def keen_weekly_sensor_data
+    Keen.average("sensors", :target_property => "data_point",
+                            :percentile => 90,
+                            :timeframe => {
+                              start: "#{Time.now - 3.day}",
+                              end: "#{Time.now - 1.day}"
+                            },
+                            :filters => [{
+                              "property_name" => "user_id",
+                              "operator" => "eq",
+                              "property_value" => "#{@user.id}"
+    }])
+  end
 end
