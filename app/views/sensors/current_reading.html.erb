@@ -1,35 +1,32 @@
+<%= render "weather/form" %>
 
-  <%= render "weather/form" %>
-
-<h1><%=  keen_weekly_sensor_data %></h1>  
-
-  <% if @sensor !=nil  %>
-    <input id="userInfo" type="hidden" value="<%= current_user.id %>">
-    <div class="chartTitle">
-      <h2>Current Readings</h2>
-      <div class="realTimeChartMessage">
-        <p>
-          Your light levels are getting low.
-        </p>
-      </div>
+<% if @sensor !=nil  %>
+  <input id="userInfo" type="hidden" value="<%= current_user.id %>">
+  <div class="chartTitle">
+    <h2>Current Readings</h2>
+    <div class="realTimeChartMessage">
+      <p>
+        Your light levels are getting low.
+      </p>
     </div>
-    <div id="realTimeChart" class="epoch category10"></div>
+  </div>
+  <div id="realTimeChart" class="epoch category10"></div>
 
-  <% elsif @sensor == nil %>
+<% elsif @sensor == nil %>
+<div class="jumbotron">
+  <h3>You have not entered your sensor port number into our system. In order for sensor information to display,
+     you will need to add the sensor port number to collect light level readings. </h3>
+    <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
+    <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
+  </div>
+<% else %>
   <div class="jumbotron">
-    <h3>You have not entered your sensor port number into our system. In order for sensor information to display,
-       you will need to add the sensor port number to collect light level readings. </h3>
+    <h3>You have not entered your address into our system. In order for sensor and
+      weather information to display, you will need to add the address where your solar panels
+      are located. </h3>
       <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
-      <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
-    </div>
-  <% else %>
-    <div class="jumbotron">
-      <h3>You have not entered your address into our system. In order for sensor and
-        weather information to display, you will need to add the address where your solar panels
-        are located. </h3>
-        <p>Please <%= link_to("edit your info", edit_user_path(@user)) %>. Also visit the
-          <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
-    </div>
-  <% end %>
+        <%= link_to "Tutorial", user_tutorial_path(@user) %> with help on getting started. </p>
+  </div>
+<% end %>
 
-  <%= render "weather/form2" %>
+<%= render "weather/form2" %>
