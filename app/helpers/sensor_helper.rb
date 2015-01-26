@@ -32,7 +32,7 @@ module SensorHelper
                             :percentile => 90,
                             :timeframe => {
                               start: "#{Time.now - 3.day}",
-                              end: "#{Time.now - 1.day}"
+                              end: "#{Time.now}"
                             },
                             :filters => [{
                               "property_name" => "user_id",

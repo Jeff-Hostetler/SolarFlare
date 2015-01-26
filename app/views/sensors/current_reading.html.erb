@@ -1,5 +1,8 @@
 
   <%= render "weather/form" %>
+
+<h1><%=  keen_weekly_sensor_data %></h1>  
+
   <% if @sensor !=nil  %>
     <input id="userInfo" type="hidden" value="<%= current_user.id %>">
     <div class="chartTitle">
