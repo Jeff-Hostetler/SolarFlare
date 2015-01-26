@@ -51,6 +51,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def keen_weekly_sensor_data
+    data = []
+    i = 1
+    until i > 8
+      data_point = Keen.average("sensors", :target_property => "data_point",
+      :percentile => 10,
+      :timeframe => {
+        start: "#{Time.now - i.day}",
+      end: "#{Time.now - (i-1).day}"
+    },
+    :filters => [{
+      "property_name" => "user_id",
+      "operator" => "eq",
+      "property_value" => "#{@user.id}"
+      }])
+      data<< [(Time.current-i.day).to_date, data_point]
+      i += 1
+    end
+    @keen_weekly_data = data
+  end
+
   private
 
   def set_user

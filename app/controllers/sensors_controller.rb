@@ -37,6 +37,10 @@ class SensorsController<ApplicationController
           )
         end
       end
+      Keen.publish(:sensors, {user_id: @user.id,
+                              data_point: @sensor.data_point,
+                              sensor_id: @sensor.id,
+                              created_at: Time.now})
       @sensor.save
     end
     redirect_to root_path

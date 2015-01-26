@@ -65,3 +65,6 @@ gem "geocoder"
 
 #arduino gem
 gem 'serialport', '~> 1.3.1'
+#keen.io, taking care of data
+gem 'keen'
+gem 'keen-cli'

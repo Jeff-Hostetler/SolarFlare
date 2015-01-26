@@ -15,6 +15,8 @@
 //= require_tree .
 //= require bootstrap
 
+
+
 /*real time sensor data graph, current_reading*/
 $(function() {
   $('a[href*=#]:not([href=#])').on('click', function() {
@@ -46,11 +48,16 @@ $(function(){
   });
 
   setInterval(function() {
-    $.getJSON(window.location.origin + '/users/'+ $("#userInfo").val() +'/current_reading', function(responseData) {
+    // $.getJSON(window.location.origin + '/users/'+ $("#userInfo").val() +'/current_reading', function(responseData) {
       /*push new data into chart with ajax call */
+      var keen_project_id = "54c027842fd4b1301e805448";
+      var keen_read_key = "ba321912884893a7ac35a5b6123879ae17f76acf81a2e7144e412bbd79225bed5f36f150823712a79d6392dd7a6bf1cfd054d6955ccb1ee689fa789df11b232337cd3419c9d202dbe1fe10f8bcfb6d95685f8cd2598b84cb0ad306232802fd20b8ae8ebd3569371d1ad96a9a41f7be9a";
+
+      $.getJSON("https://api.keen.io/3.0/projects/"+ "54c027842fd4b1301e805448" +"/queries/extraction?api_key="+ "ba321912884893a7ac35a5b6123879ae17f76acf81a2e7144e412bbd79225bed5f36f150823712a79d6392dd7a6bf1cfd054d6955ccb1ee689fa789df11b232337cd3419c9d202dbe1fe10f8bcfb6d95685f8cd2598b84cb0ad306232802fd20b8ae8ebd3569371d1ad96a9a41f7be9a" +"&event_collection=sensors&latest=1", function(responseData) {
+
       var newData = [{
         time: (Date.now()/1000),
-        y: responseData.data_point
+        y: responseData.result[0].data_point
       }];
       chart.push(newData);
       /*adjust color of background based on the light level reading*/
