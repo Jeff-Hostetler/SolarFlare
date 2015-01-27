@@ -41,7 +41,8 @@ class SensorsController<ApplicationController
                               data_point: @sensor.data_point,
                               sensor_id: @sensor.id,
                               created_at: Time.now})
-      @sensor.save
+      # saved to Keen
+      # @sensor.save
     end
     redirect_to root_path
   end
