@@ -2,8 +2,10 @@ module SensorHelper
 
   def keen_weekly_sensor_data
     data = []
+
     i = 0
     until i > 7
+counter  = Time.now
       data_point = (Keen.average("sensors", :target_property => "data_point",
       :percentile => 90,
       :timeframe => {
@@ -16,6 +18,7 @@ module SensorHelper
       "property_value" => "#{@user.id}",
       maxAge: 300
       }])).to_f
+p (Time.now - counter)
 
       if data_point == nil
         data_percentage_point = 0
