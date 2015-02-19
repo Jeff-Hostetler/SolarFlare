@@ -21,22 +21,21 @@ class SensorsController<ApplicationController
 
   def create
     @sensor = @user.sensors.new(params.permit(:user_id, :data_point, :created_at))
-    if data_validation(@sensor)
       if @sensor.data_point < 200
-        #mailer
-        if (@user.email_alert == true)
-          UserMailer.alert_email(@user).deliver
-        end
-        #twilio
-        if (@user.text_alert == true) && (@user.phone_number != nil)
-          @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_TOKEN']
-          @client.messages.create(
-            from: '+17205065738',
-            to: @user.phone_number,
-            body: 'Light level is too damn low! Love, SolarFlare.'
-          )
-        end
+      #mailer
+      if (@user.email_alert == true)
+        UserMailer.alert_email(@user).deliver
       end
+      #twilio
+      if (@user.text_alert == true) && (@user.phone_number != nil)
+        @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_TOKEN']
+        @client.messages.create(
+          from: '+17205065738',
+          to: @user.phone_number,
+          body: 'Light level is too damn low! Love, SolarFlare.'
+        )
+      end
+      
       @sensor.save
     end
     redirect_to root_path
