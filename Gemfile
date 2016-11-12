@@ -28,5 +28,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "dotenv-rails"
   gem "pry"
+  gem "success-unicorn", "~> 0.0.1"
 end
 
